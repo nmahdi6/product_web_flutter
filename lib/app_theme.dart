@@ -61,14 +61,14 @@ class AppTheme {
 
   static final TextTheme _textTheme = TextTheme(
     displayLarge: TextStyle(
-      fontFamily: StringConst.VISUELT_PRO,
+      fontFamily: StringConst.Sofia_Pro,
       fontSize: Sizes.TEXT_SIZE_96,
       color: AppColors.black,
       fontWeight: _bold,
       fontStyle: FontStyle.normal,
     ),
     displayMedium: TextStyle(
-      fontFamily: StringConst.VISUELT_PRO,
+      fontFamily: StringConst.Sofia_Pro,
       fontSize: Sizes.TEXT_SIZE_60,
       color: AppColors.black,
       fontWeight: _bold,
@@ -81,7 +81,7 @@ class AppTheme {
       fontStyle: FontStyle.normal,
     ),
     headlineMedium: TextStyle(
-      fontFamily: StringConst.VISUELT_PRO,
+      fontFamily: StringConst.Sofia_Pro,
       fontSize: Sizes.TEXT_SIZE_34,
       color: AppColors.black,
       fontWeight: _bold,
@@ -94,14 +94,14 @@ class AppTheme {
       fontStyle: FontStyle.normal,
     ),
     titleLarge: TextStyle(
-      fontFamily: StringConst.VISUELT_PRO,
+      fontFamily: StringConst.Sofia_Pro,
       fontSize: Sizes.TEXT_SIZE_20,
       color: AppColors.black,
       fontWeight: _bold,
       fontStyle: FontStyle.normal,
     ),
     titleMedium: TextStyle(
-      fontFamily: StringConst.VISUELT_PRO,
+      fontFamily: StringConst.Sofia_Pro,
       fontSize: Sizes.TEXT_SIZE_16,
       color: AppColors.secondaryColor,
       fontWeight: _semiBold,
@@ -114,7 +114,7 @@ class AppTheme {
       fontStyle: FontStyle.normal,
     ),
     bodyLarge: TextStyle(
-      fontFamily: StringConst.VISUELT_PRO,
+      fontFamily: StringConst.Sofia_Pro,
       fontSize: Sizes.TEXT_SIZE_16,
       color: AppColors.secondaryColor,
       fontWeight: _light,
@@ -133,7 +133,7 @@ class AppTheme {
       fontWeight: _medium,
     ),
     bodySmall: TextStyle(
-      fontFamily: StringConst.VISUELT_PRO,
+      fontFamily: StringConst.Sofia_Pro,
       fontSize: Sizes.TEXT_SIZE_12,
       color: AppColors.white,
       fontWeight: _regular,

@@ -695,7 +695,7 @@ class StringConst {
   static const String ONBOARDING_APP_PLAYSTORE_URL = "";
 
   // Font Family
-  static const String VISUELT_PRO = "VisueltPro";
+  static const String Sofia_Pro = "sofia_pro";
 
   //API
   static const String BASE_URL = "https://portfolio-api-liart.vercel.app/api";

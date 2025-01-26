@@ -121,21 +121,21 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: VisueltPro
+    - family: sofia_pro
       fonts:
-        - asset: assets/fonts/visuelt/VisueltPro-Thin.ttf
+        - asset: assets/fonts/sofia_pro/Sofia Pro ExtraLight Italic Az.otf
           weight: 100
-        - asset: assets/fonts/visuelt/VisueltPro-ExtraLight.ttf
+        - asset: assets/fonts/sofia_pro/Sofia Pro ExtraLight Az.otf
           weight: 200
-        - asset: assets/fonts/visuelt/VisueltPro-Light.ttf
+        - asset: assets/fonts/sofia_pro/Sofia Pro Light Az.otf
           weight: 300
-        - asset: assets/fonts/visuelt/VisueltPro-Regular.ttf
+        - asset: assets/fonts/sofia_pro/Sofia Pro Regular Italic Az.otf
           weight: 400
-        - asset: assets/fonts/visuelt/VisueltPro-Medium.ttf
+        - asset: assets/fonts/sofia_pro/Sofia Pro Medium Italic Az.otf
           weight: 500
-        - asset: assets/fonts/visuelt/VisueltPro-Black.ttf
+        - asset: assets/fonts/sofia_pro/Sofia Pro Bold Az.otf
           weight: 700
-        - asset: assets/fonts/visuelt/VisueltPro-Bold.ttf
+        - asset: assets/fonts/sofia_pro/Sofia Pro Black Az.otf
           weight: 800
     #
     # For details regarding fonts from package dependencies,
