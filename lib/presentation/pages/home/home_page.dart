@@ -6,6 +6,7 @@ import 'package:aerium/presentation/pages/home/widgets/loading_page.dart';
 import 'package:aerium/presentation/pages/widgets/animated_footer.dart';
 import 'package:aerium/presentation/widgets/product_deal_card.dart';
 import 'package:aerium/presentation/widgets/section_heading_1.dart';
+import 'package:aerium/presentation/widgets_1/animated_text_slide_box_transition.dart';
 import 'package:aerium/presentation/widgets_1/custom_spacer.dart';
 import 'package:aerium/presentation/widgets_1/page_wrapper.dart';
 import 'package:another_carousel_pro/another_carousel_pro.dart';
@@ -79,7 +80,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
     double screenWidth = MediaQuery.of(context).size.width;
 
-    double headerFontSize = responsiveSize(context, 28, 48, md: 25, sm: 20);
+    double headerFontSize = responsiveSize(context, 22, 32, md: 20, sm: 16);
 
     final myItems = [
       Container(
@@ -157,9 +158,118 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             parent: AlwaysScrollableScrollPhysics(),
           ),
           children: [
-            HomePageHeader(
-              controller: _slideTextController,
-              scrollToWorksKey: key,
+            // HomePageHeader(
+            //   controller: _slideTextController,
+            //   scrollToWorksKey: key,
+            // ),
+            Container(
+              width: size.width,
+              height: size.height,
+              child: Column(
+                children: [
+                  Stack(children: [
+                    SizedBox(
+                      height: assignHeight(context, 0.58), // ارتفاع منحنی
+                      width: double.infinity,
+                      child: CustomPaint(
+                        painter: HeaderPainter(),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 100),
+                          child: Column(
+                            children: [
+                              Text(
+                                StringConst.APP_NAME,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white, // رنگ متن
+                                ),
+                              ),
+                              SizedBox(
+                                height: 30,
+                              ),
+                              Text(
+                                'با ما تفاوت را احساس کنید',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontFamily:
+                                      'IranSans', // اضافه کردن فونت دلخواه
+                                  fontSize: 28, // اندازه فونت
+                                  fontWeight: FontWeight.bold, // ضخامت فونت
+                                  color: const Color.fromARGB(
+                                      255, 255, 254, 208), // رنگ اصلی متن
+                                  shadows: [
+                                    Shadow(
+                                      color: Colors.orangeAccent
+                                          .withOpacity(0.8), // سایه نارنجی روشن
+                                      blurRadius: 10, // محو بودن سایه
+                                      offset: Offset(0, 3), // مکان سایه
+                                    ),
+                                    Shadow(
+                                      color: Colors.black
+                                          .withOpacity(0.4), // سایه تیره‌تر
+                                      blurRadius: 15, // محو بودن سایه
+                                      offset: Offset(0, 5), // مکان سایه
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 100),
+                          child: Container(
+                              width: assignWidth(context, 0.15),
+                              height: assignWidth(context, 0.15),
+                              child: Image(
+                                  image: AssetImage(
+                                      'assets/images/shams_logo.png'))),
+                        ),
+                      ],
+                    ),
+                  ]),
+
+                  SizedBox(
+                    height: assignHeight(context, 0.02),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 40, vertical: 5),
+                    // padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+                    // child: Align(
+                    //   alignment: Alignment.topRight,
+                    //   child: Text(
+                    //     StringConst.HOME_MAIN_TEXT,
+                    //     style: textTheme.displayMedium?.copyWith(
+                    //       color: AppColors.black,
+                    //       fontSize: headerFontSize,
+                    //     ),
+                    //   ),
+
+                    child: AnimatedTextSlideBoxTransition(
+                      controller: _slideTextController,
+                      text: StringConst.HOME_MAIN_TEXT,
+                      maxLines: 15,
+                      textStyle: textTheme.displayMedium?.copyWith(
+                        color: AppColors.white,
+                        height: 1.6,
+                        fontSize: headerFontSize,
+                      ),
+                    ),
+                  ),
+                  // ),
+                  SizedBox(
+                    height: assignHeight(context, 0.02),
+                  ),
+                ],
+              ),
             ),
 
             // new product list
