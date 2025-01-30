@@ -4,11 +4,13 @@ import 'package:aerium/presentation/pages/products/product_detail_page.dart'
 import 'package:aerium/presentation/pages/home/widgets/home_page_header.dart';
 import 'package:aerium/presentation/pages/home/widgets/loading_page.dart';
 import 'package:aerium/presentation/pages/widgets/animated_footer.dart';
+import 'package:aerium/presentation/pages/widgets/simple_footer.dart';
 import 'package:aerium/presentation/widgets/product_deal_card.dart';
 import 'package:aerium/presentation/widgets/section_heading_1.dart';
 import 'package:aerium/presentation/widgets_1/animated_text_slide_box_transition.dart';
 import 'package:aerium/presentation/widgets_1/custom_spacer.dart';
 import 'package:aerium/presentation/widgets_1/page_wrapper.dart';
+import 'package:aerium/presentation/widgets_1/spaces.dart';
 import 'package:another_carousel_pro/another_carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'package:aerium/values/values.dart';
@@ -80,7 +82,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
     double screenWidth = MediaQuery.of(context).size.width;
 
-    double headerFontSize = responsiveSize(context, 22, 32, md: 20, sm: 16);
+    double headerFontSize = responsiveSize(context, 20, 30, md: 18, sm: 14);
 
     final myItems = [
       Container(
@@ -237,30 +239,40 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   ]),
 
                   SizedBox(
-                    height: assignHeight(context, 0.02),
+                    height: assignHeight(context, 0.018),
                   ),
                   Padding(
                     padding:
-                        const EdgeInsets.symmetric(horizontal: 40, vertical: 5),
-                    // padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
-                    // child: Align(
-                    //   alignment: Alignment.topRight,
-                    //   child: Text(
-                    //     StringConst.HOME_MAIN_TEXT,
-                    //     style: textTheme.displayMedium?.copyWith(
-                    //       color: AppColors.black,
-                    //       fontSize: headerFontSize,
-                    //     ),
-                    //   ),
-
+                        const EdgeInsets.symmetric(horizontal: 25, vertical: 2),
+                    child: Row(
+                      children: [
+                        AnimatedTextSlideBoxTransition(
+                          controller: _slideTextController,
+                          text: StringConst.HOME_MAIN_TITLE_TEXT,
+                          maxLines: 20,
+                          textStyle: textTheme.displayMedium?.copyWith(
+                            color: AppColors.white,
+                            height: 1.6,
+                            fontSize: 24,
+                            // fontSize: headerFontSize,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SpaceH20(),
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 25, vertical: 2),
                     child: AnimatedTextSlideBoxTransition(
                       controller: _slideTextController,
                       text: StringConst.HOME_MAIN_TEXT,
-                      maxLines: 15,
+                      maxLines: 20,
                       textStyle: textTheme.displayMedium?.copyWith(
                         color: AppColors.white,
                         height: 1.6,
-                        fontSize: headerFontSize,
+                        fontSize: 20,
+                        // fontSize: headerFontSize,
                       ),
                     ),
                   ),
@@ -439,6 +451,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
             CustomSpacer(heightFactor: 0.15),
             AnimatedFooter(),
+            SimpleFooterSm(),
           ],
         ),
       ),

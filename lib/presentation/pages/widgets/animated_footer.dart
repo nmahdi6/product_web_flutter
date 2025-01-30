@@ -1,19 +1,10 @@
 import 'package:aerium/core/layout/adaptive.dart';
-import 'package:aerium/core/utils/functions.dart';
-import 'package:aerium/presentation/pages/widgets/simple_footer.dart';
-import 'package:aerium/presentation/pages/widgets/socials.dart';
-import 'package:aerium/presentation/widgets_1/animated_bubble_button.dart';
-import 'package:aerium/presentation/widgets_1/animated_line_through_text.dart';
 import 'package:aerium/presentation/widgets_1/animated_positioned_text.dart';
 import 'package:aerium/presentation/widgets_1/animated_positioned_widget.dart';
 import 'package:aerium/presentation/widgets_1/spaces.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:responsive_builder/responsive_builder.dart';
 import 'package:visibility_detector/visibility_detector.dart';
-
-import '../contact_page.dart';
 
 class AnimatedFooter extends StatefulWidget {
   const AnimatedFooter({
@@ -75,7 +66,7 @@ class _AnimatedFooterState extends State<AnimatedFooter>
 
     return Container(
       width: widget.width ?? widthOfScreen(context),
-      height: widget.height ?? assignHeight(context, 0.8),
+      // height: widget.height ?? assignHeight(context, 0.6),
       color: widget.backgroundColor,
       child: VisibilityDetector(
         key: Key('animated-footer'),
@@ -88,7 +79,9 @@ class _AnimatedFooterState extends State<AnimatedFooter>
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Spacer(flex: 1),
+            SpaceW20(),
+
+            // Spacer(flex: 1),
             Container(
               height: circleImageSize,
               child: Stack(
@@ -222,154 +215,6 @@ class _AnimatedFooterState extends State<AnimatedFooter>
                 ),
               ],
             ),
-            SpaceH30(),
-            AnimatedBubbleButton(
-              title: StringConst.SAY_HELLO.toUpperCase(),
-              onTap: () {
-                Navigator.pushNamed(context, ContactPage.contactPageRoute);
-              },
-            ),
-            Spacer(flex: 1),
-            ResponsiveBuilder(
-              builder: (context, sizingInformation) {
-                double screenWidth = sizingInformation.screenSize.width;
-                if (screenWidth <= RefinedBreakpoints().tabletNormal) {
-                  return Column(
-                    children: [
-                      // SimpleFooterSm(),
-                      Column(
-                        children: [
-                          Socials(socialData: Data.socialData),
-                          SpaceH30(),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                StringConst.COPYRIGHT,
-                                style: style,
-                              ),
-                            ],
-                          ),
-                          SpaceH12(),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              InkWell(
-                                onTap: () {
-                                  Functions.launchUrl(StringConst.DESIGN_LINK);
-                                },
-                                child: AnimatedLineThroughText(
-                                  text: StringConst.DESIGNED_BY,
-                                  isUnderlinedByDefault: true,
-                                  isUnderlinedOnHover: false,
-                                  hoverColor: AppColors.white,
-                                  coverColor: AppColors.black,
-                                  textStyle: style?.copyWith(
-                                    decoration: TextDecoration.underline,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          SpaceH8(),
-                          // BuiltWithFlutter(),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.baseline,
-                            textBaseline: TextBaseline.alphabetic,
-                            children: [
-                              Text(
-                                StringConst.BUILT_WITH_FLUTTER,
-                                style: style,
-                              ),
-                              FlutterLogo(size: 14),
-                              Text(
-                                " with ",
-                                style: style,
-                              ),
-                              Icon(
-                                FontAwesomeIcons.solidHeart,
-                                size: 14,
-                                color: AppColors.errorRed,
-                              )
-                            ],
-                          ),
-                        ],
-                      ),
-                      SpaceH8(),
-                    ],
-                  );
-                } else {
-                  return Column(
-                    children: [
-                      // SimpleFooterLg(),
-                      Column(
-                        children: [
-                          // instagram telegram and ....
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Socials(socialData: Data.socialData),
-                            ],
-                          ),
-                          SpaceH20(),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                StringConst.COPYRIGHT,
-                                style: style,
-                              ),
-                              SpaceW8(),
-                              InkWell(
-                                onTap: () {
-                                  Functions.launchUrl(StringConst.DESIGN_LINK);
-                                },
-                                child: AnimatedLineThroughText(
-                                  text: StringConst.DESIGNED_BY,
-                                  isUnderlinedByDefault: true,
-                                  isUnderlinedOnHover: false,
-                                  hoverColor: AppColors.white,
-                                  coverColor: AppColors.black,
-                                  textStyle: style?.copyWith(
-                                    decoration: TextDecoration.underline,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          SpaceH8(),
-                          // BuiltWithFlutter(),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.baseline,
-                            textBaseline: TextBaseline.alphabetic,
-                            children: [
-                              Text(
-                                StringConst.BUILT_WITH_FLUTTER,
-                                style: style,
-                              ),
-                              FlutterLogo(size: 14),
-                              Text(
-                                " with ",
-                                style: style,
-                              ),
-                              Icon(
-                                FontAwesomeIcons.solidHeart,
-                                size: 14,
-                                color: AppColors.errorRed,
-                              )
-                            ],
-                          ),
-                        ],
-                      ),
-                      SpaceH8(),
-                    ],
-                  );
-                }
-              },
-            ),
-            // Spacer(),
           ],
         ),
       ),

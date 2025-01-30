@@ -1,5 +1,6 @@
 import 'package:aerium/presentation/pages/products/product_detail_page.dart'
     hide ProductDealItem;
+import 'package:aerium/presentation/pages/widgets/simple_footer.dart';
 import 'package:aerium/presentation/widgets/product_deal_card.dart';
 import 'package:aerium/presentation/widgets/section_heading_1.dart';
 import 'package:aerium/values/values.dart';
@@ -208,6 +209,7 @@ class _ProductsPageState extends State<ProductsPage>
                 ),
                 CustomSpacer(heightFactor: 0.2),
                 AnimatedFooter(),
+                SimpleFooterSm(),
               ],
             ),
           ),
