@@ -110,19 +110,19 @@ flutter:
   fonts:
     - family: sofia_pro
       fonts:
-        - asset: assets/fonts/sofia_pro/Sofia Pro ExtraLight Italic Az.otf
+        - asset: assets/fonts/sofia_pro/Sofia_Pro_ExtraLight_Italic_Az.otf
           weight: 100
-        - asset: assets/fonts/sofia_pro/Sofia Pro ExtraLight Az.otf
+        - asset: assets/fonts/sofia_pro/Sofia_Pro_ExtraLight_Az.otf
           weight: 200
-        - asset: assets/fonts/sofia_pro/Sofia Pro Light Az.otf
+        - asset: assets/fonts/sofia_pro/Sofia_Pro_Light_Az.otf
           weight: 300
-        - asset: assets/fonts/sofia_pro/Sofia Pro Regular Italic Az.otf
+        - asset: assets/fonts/sofia_pro/Sofia_Pro_Regular_Italic_Az.otf
           weight: 400
-        - asset: assets/fonts/sofia_pro/Sofia Pro Medium Italic Az.otf
+        - asset: assets/fonts/sofia_pro/Sofia_Pro_Medium_Italic_Az.otf
           weight: 500
-        - asset: assets/fonts/sofia_pro/Sofia Pro Bold Az.otf
+        - asset: assets/fonts/sofia_pro/Sofia_Pro_Bold_Az.otf
           weight: 700
-        - asset: assets/fonts/sofia_pro/Sofia Pro Black Az.otf
+        - asset: assets/fonts/sofia_pro/Sofia_Pro_Black_Az.otf
           weight: 800
     #
     # For details regarding fonts from package dependencies,

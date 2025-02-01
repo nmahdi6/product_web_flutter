@@ -36,7 +36,7 @@ class AppLogo extends StatelessWidget {
               title,
               style: titleStyle ??
                   textTheme.displayMedium?.copyWith(
-                      color: titleColor,
+                      color: AppColors.white,
                       fontSize: fontSize,
                       fontWeight: FontWeight.w900),
             ),
