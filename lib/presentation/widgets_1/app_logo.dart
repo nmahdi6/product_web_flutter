@@ -27,8 +27,7 @@ class AppLogo extends StatelessWidget {
             child: Container(
                 width: 65,
                 height: 65,
-                child:
-                    Image(image: AssetImage('assets/images/shams_logo.png'))),
+                child: Image(image: AssetImage(StringConst.shams_logo))),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 0),

@@ -700,4 +700,35 @@ class StringConst {
   //API
   static const String BASE_URL = "https://portfolio-api-liart.vercel.app/api";
   static const String GET_IN_TOUCH_POINT = "/getintouch";
+
+  // images url
+  static const String shams_logo = 'assets/images/shams_logo.png';
+  static const String badsaba_dark = 'assets/images/products/badsaba_dark.jpg';
+
+  static const String rice_damsiyah_1 =
+      'assets/images/products/rice_damsiyah_1.jpg';
+  static const String rice_damsiyah_2 =
+      'assets/images/products/rice_damsiyah_2.jpg';
+  static const String rice_damsiyah_3 =
+      'assets/images/products/rice_damsiyah_3.jpg';
+  static const String rice_damsiyah_4 =
+      'assets/images/products/rice_damsiyah_4.png';
+
+  static const String dates_kabkab_1 =
+      'assets/images/products/dates_kabkab_1.jpg';
+  static const String dates_kabkab_2 =
+      'assets/images/products/dates_kabkab_2.jpg';
+  static const String dates_kabkab_3 =
+      'assets/images/products/dates_kabkab_3.jpg';
+  static const String dates_kabkab_4 =
+      'assets/images/products/dates_kabkab_4.jpg';
+
+  static const String cake_oydo_1 = 'assets/images/products/cake_oydo_1.jpg';
+  static const String cake_oydo_2 = 'assets/images/products/cake_oydo_2.jpg';
+  static const String cake_oydo_3 = 'assets/images/products/cake_oydo_3.jpg';
+  static const String cake_oydo_4 = 'assets/images/products/cake_oydo_4.jpg';
+
+  static const String tea_lil_1 = 'assets/images/products/tea_lil_1.webp';
+  static const String tea_lil_2 = 'assets/images/products/tea_lil_2.webp';
+  static const String tea_lil_3 = 'assets/images/products/tea_lil_3.png';
 }

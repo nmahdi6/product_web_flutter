@@ -90,8 +90,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15), // شعاع گوشه‌ها
           image: DecorationImage(
-            image: AssetImage(
-                'assets/images/products/چای لیل (2).webp'), // مسیر تصویر
+            image: AssetImage(StringConst.tea_lil_2), // مسیر تصویر
             // fit: BoxFit.cover,
           ),
         ),
@@ -101,8 +100,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15), // شعاع گوشه‌ها
           image: DecorationImage(
-            image: AssetImage(
-                'assets/images/products/برنج دمسیاه (3).jpg'), // مسیر تصویر
+            image: AssetImage(StringConst.rice_damsiyah_3), // مسیر تصویر
             fit: BoxFit.cover,
           ),
         ),
@@ -112,8 +110,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15), // شعاع گوشه‌ها
           image: DecorationImage(
-            image: AssetImage(
-                'assets/images/products/کیک اویدو (1).jpg'), // مسیر تصویر
+            image: AssetImage(StringConst.cake_oydo_1), // مسیر تصویر
             fit: BoxFit.cover,
           ),
         ),
@@ -123,8 +120,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15), // شعاع گوشه‌ها
           image: DecorationImage(
-            image: AssetImage(
-                'assets/images/products/خرمای کبکاب (1).jpg'), // مسیر تصویر
+            image: AssetImage(StringConst.dates_kabkab_1), // مسیر تصویر
             fit: BoxFit.cover,
           ),
         ),
@@ -231,8 +227,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               width: assignWidth(context, 0.15),
                               height: assignWidth(context, 0.15),
                               child: Image(
-                                  image: AssetImage(
-                                      'assets/images/shams_logo.png'))),
+                                  image: AssetImage(StringConst.shams_logo))),
                         ),
                       ],
                     ),

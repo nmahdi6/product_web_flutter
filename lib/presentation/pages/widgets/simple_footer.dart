@@ -29,32 +29,31 @@ class SimpleFooter extends StatelessWidget {
       child: Center(
         child: ResponsiveBuilder(
           builder: (context, sizingInformation) {
-            return Column(
-              children: [
-                Spacer(),
-                SimpleFooterSm(),
-                // SimpleFooterLg(),
-                SpaceH20(),
-              ],
-            );
-            // if (sizingInformation.isMobile) {
-            //   return Column(
-            //     children: [
-            //       Spacer(flex: 2),
-            //       SimpleFooterSm(),
-            //       Spacer(),
-            //     ],
-            //   );
-            // } else {
-            //   return Column(
-            //     children: [
-            //       Spacer(),
-            //       SimpleFooterSm(),
-            //       // SimpleFooterLg(),
-            //       SpaceH20(),
-            //     ],
-            //   );
-            // }
+            // return Column(
+            //   children: [
+            //     Spacer(),
+            //     SimpleFooterSm(),
+            //     // SimpleFooterLg(),
+            //     SpaceH20(),
+            //   ],
+            // );
+            if (sizingInformation.isMobile) {
+              return Column(
+                children: [
+                  Spacer(flex: 2),
+                  SimpleFooterSm(),
+                  Spacer(),
+                ],
+              );
+            } else {
+              return Column(
+                children: [
+                  Spacer(),
+                  SimpleFooterLg(),
+                  SpaceH20(),
+                ],
+              );
+            }
           },
         ),
       ),
@@ -119,57 +118,57 @@ class SimpleFooterSm extends StatelessWidget {
   }
 }
 
-// class SimpleFooterLg extends StatelessWidget {
-//   const SimpleFooterLg({Key? key}) : super(key: key);
+class SimpleFooterLg extends StatelessWidget {
+  const SimpleFooterLg({Key? key}) : super(key: key);
 
-//   @override
-//   Widget build(BuildContext context) {
-//     TextTheme textTheme = Theme.of(context).textTheme;
-//     TextStyle? style = textTheme.bodyLarge?.copyWith(
-//       color: AppColors.accentColor,
-//       fontSize: Sizes.TEXT_SIZE_14,
-//     );
-//     return Column(
-//       children: [
-//         // instagram telegram and ....
-//         Row(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children: [
-//             Socials(socialData: Data.socialData),
-//           ],
-//         ),
-//         SpaceH20(),
-//         Row(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children: [
-//             Text(
-//               StringConst.COPYRIGHT,
-//               style: style,
-//             ),
-//             SpaceW8(),
-//             InkWell(
-//               onTap: () {
-//                 Functions.launchUrl(StringConst.DESIGN_LINK);
-//               },
-//               child: AnimatedLineThroughText(
-//                 text: StringConst.DESIGNED_BY,
-//                 isUnderlinedByDefault: true,
-//                 isUnderlinedOnHover: false,
-//                 hoverColor: AppColors.white,
-//                 coverColor: AppColors.black,
-//                 textStyle: style?.copyWith(
-//                   decoration: TextDecoration.underline,
-//                 ),
-//               ),
-//             ),
-//           ],
-//         ),
-//         SpaceH8(),
-//         BuiltWithFlutter(),
-//       ],
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    TextTheme textTheme = Theme.of(context).textTheme;
+    TextStyle? style = textTheme.bodyLarge?.copyWith(
+      color: AppColors.accentColor,
+      fontSize: Sizes.TEXT_SIZE_14,
+    );
+    return Column(
+      children: [
+        // instagram telegram and ....
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Socials(socialData: Data.socialData),
+          ],
+        ),
+        SpaceH20(),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              StringConst.COPYRIGHT,
+              style: style,
+            ),
+            SpaceW8(),
+            InkWell(
+              onTap: () {
+                Functions.launchUrl(StringConst.DESIGN_LINK);
+              },
+              child: AnimatedLineThroughText(
+                text: StringConst.DESIGNED_BY,
+                isUnderlinedByDefault: true,
+                isUnderlinedOnHover: false,
+                hoverColor: AppColors.white,
+                coverColor: AppColors.black,
+                textStyle: style?.copyWith(
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+            ),
+          ],
+        ),
+        SpaceH8(),
+        BuiltWithFlutter(),
+      ],
+    );
+  }
+}
 
 class BuiltWithFlutter extends StatelessWidget {
   const BuiltWithFlutter({Key? key}) : super(key: key);
