@@ -29,12 +29,12 @@ class ProfileScreen extends StatelessWidget {
             SpaceH16(),
             Text(StringConst.USERNAME_2, style: theme.textTheme.headlineMedium),
             SpaceH4(),
-            Text(
-              StringConst.USERNAME_EMAIL,
-              style: theme.textTheme.titleLarge?.copyWith(
-                color: AppColors.secondaryColor2,
-              ),
-            ),
+            // Text(
+            //   StringConst.USERNAME_EMAIL,
+            //   style: theme.textTheme.titleLarge?.copyWith(
+            //     color: AppColors.secondaryColor2,
+            //   ),
+            // ),
             SpaceH4(),
             Text(
               StringConst.USER_LOCATION,

@@ -77,8 +77,8 @@ class StringConst {
   static const String SORT_BY = "Sort by";
 
   //Profile Screen
-  static const String USERNAME_2 = "David Legend";
-  static const String USERNAME_EMAIL = "davidcobbina47@gmail.com";
+  static const String USERNAME_2 = "orum_azaran_shams";
+  // static const String USERNAME_EMAIL = "davidcobbina47@gmail.com";
   static const String USER_LOCATION = "Ghana, Accra";
   static const String EXIT = "Exit";
   static const String ORDERS_AND_RETURNS = "Orders and returns";
@@ -539,17 +539,17 @@ class StringConst {
   static const String LOGIN_CATALOG_GITHUB_URL =
       "https://github.com/david-legend/login_catalog";
 
-  static const String FOODY_BITE = "FoodyBite";
-  static const String FOODY_BITE_PLATFORM = "Android / IOS.";
-  static const String FOODY_BITE_CATEGORY = "Food / Restaurant.";
-  static const String FOODY_BITE_DESIGNER = "Yagnesh P.";
-  static const String FOODY_BITE_SUBTITLE =
-      "A useful free ui kit design for food related apps";
-  static const String FOODY_BITE_DETAIL =
-      "Foodybite is a free ui kit designed by Yagnesh Pipariya and built by David Cobbina. The goal of this project is to fast track development and inspire developers who want to build a food related app.";
-  static const String FOODY_BITE_PLAYSTORE_URL = "";
-  static const String FOODY_BITE_GITHUB_URL =
-      "https://github.com/david-legend/foodybite";
+  // static const String FOODY_BITE = "FoodyBite";
+  // static const String FOODY_BITE_PLATFORM = "Android / IOS.";
+  // static const String FOODY_BITE_CATEGORY = "Food / Restaurant.";
+  // static const String FOODY_BITE_DESIGNER = "Yagnesh P.";
+  // static const String FOODY_BITE_SUBTITLE =
+  // "A useful free ui kit design for food related apps";
+  // static const String FOODY_BITE_DETAIL =
+  //     "Foodybite is a free ui kit designed by Yagnesh Pipariya and built by David Cobbina. The goal of this project is to fast track development and inspire developers who want to build a food related app.";
+  // static const String FOODY_BITE_PLAYSTORE_URL = "";
+  // static const String FOODY_BITE_GITHUB_URL =
+  //     "https://github.com/david-legend/foodybite";
 
   static const String OTP_TEXT_FIELD = "Otp Textfield";
   static const String OTP_TEXT_FIELD_PLATFORM = "Flutter Package/Library.";
