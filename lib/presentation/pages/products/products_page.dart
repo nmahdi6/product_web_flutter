@@ -69,7 +69,7 @@ class _ProductsPageState extends State<ProductsPage>
         children: [
           // background image
           Container(
-            color: AppColors.black,
+            color: AppColors.appBackgroundColor,
             width: size.width,
             height: size.height,
             child: Center(
@@ -77,9 +77,9 @@ class _ProductsPageState extends State<ProductsPage>
                 // borderRadius:
                 //     widget.borderRadius,
                 child: Image.asset(
-                  StringConst.badsaba_dark,
-                  width: size.width / 2,
-                  height: size.height / 2,
+                  StringConst.badsaba_gold,
+                  width: size.width,
+                  height: size.height,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -94,47 +94,7 @@ class _ProductsPageState extends State<ProductsPage>
               ),
               children: [
                 CustomSpacer(heightFactor: 0.16),
-
                 SpaceH40(),
-                // Padding(
-                //   padding: EdgeInsets.symmetric(horizontal: 120),
-                //   child: Row(
-                //     mainAxisSize: MainAxisSize.min,
-                //     children: [
-                //       DropdownButton<String>(
-                //         autofocus: false,
-                //         isDense: false,
-                //         // isExpanded: true,
-                //         value: selectedValue,
-                //         style: textTheme.headlineMedium?.copyWith(
-                //             fontWeight: FontWeight.w600,
-                //             color: AppColors.white,
-                //             fontSize: 24),
-                //         items: <String>[
-                //           StringConst.ALL_PRODUCT,
-                //           StringConst.POPULAR_PRODUCT,
-                //           StringConst.NEW_PRODUCT
-                //         ]
-                //             .map((String value) => DropdownMenuItem<String>(
-                //                   value: value,
-                //                   child: Text(value),
-                //                 ))
-                //             .toList(),
-                //         onChanged: (String? newValue) {
-                //           setState(() {
-                //             selectedValue = newValue!;
-                //           });
-                //         },
-                //         dropdownColor: Colors.black, // تغییر رنگ پس‌زمینه منو
-                //         icon: Icon(Icons.arrow_drop_down,
-                //             color: Colors.white), // تغییر رنگ آیکون
-                //         menuMaxHeight: 200, // حداکثر
-                //         underline: SizedBox(), // حذف خط زیر Dropdown
-                //       ),
-                //     ],
-                //   ),
-                // ),
-
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 110),
                   child: Row(
@@ -143,12 +103,13 @@ class _ProductsPageState extends State<ProductsPage>
                         title: StringConst.ALL_PRODUCT,
                         titleTextStyle: textTheme.headlineMedium?.copyWith(
                             fontWeight: FontWeight.w600,
-                            color: AppColors.white,
+                            color: AppColors.appTextColor,
                             fontSize: 24),
                       ),
                       IconButton(
                         onPressed: () {},
-                        icon: Icon(Icons.arrow_drop_down, color: Colors.white),
+                        icon: Icon(Icons.arrow_drop_down,
+                            color: AppColors.appTextColor),
                       )
                     ],
                   ),

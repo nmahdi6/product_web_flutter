@@ -184,36 +184,48 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 StringConst.APP_NAME_ENGLISH,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
+                                  fontFamily: StringConst.FONT_FAMILY,
                                   fontSize: 16,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.white, // رنگ متن
+                                  fontWeight: FontWeight.w900,
+                                  color: AppColors.white,
+                                  shadows: [
+                                    Shadow(
+                                      color:
+                                          Colors.orangeAccent.withOpacity(0.7),
+                                      blurRadius: 70,
+                                      offset: Offset(0, 3),
+                                    ),
+                                    Shadow(
+                                      color: Colors.black.withOpacity(0.4),
+                                      blurRadius: 15,
+                                      offset: Offset(0, 5),
+                                    ),
+                                  ],
                                 ),
                               ),
                               SizedBox(
                                 height: 30,
                               ),
                               Text(
-                                'با ما تفاوت را احساس کنید',
+                                StringConst.DEV_INTRO,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  fontFamily:
-                                      'IranSans', // اضافه کردن فونت دلخواه
-                                  fontSize: 28, // اندازه فونت
-                                  fontWeight: FontWeight.bold, // ضخامت فونت
-                                  color: const Color.fromARGB(
-                                      255, 255, 254, 208), // رنگ اصلی متن
+                                  fontFamily: StringConst.FONT_FAMILY,
+                                  fontSize: 28,
+                                  fontWeight: FontWeight.w900,
+                                  color:
+                                      const Color.fromARGB(255, 255, 254, 208),
                                   shadows: [
                                     Shadow(
-                                      color: Colors.orangeAccent
-                                          .withOpacity(0.8), // سایه نارنجی روشن
-                                      blurRadius: 10, // محو بودن سایه
-                                      offset: Offset(0, 3), // مکان سایه
+                                      color:
+                                          Colors.orangeAccent.withOpacity(0.8),
+                                      blurRadius: 10,
+                                      offset: Offset(0, 3),
                                     ),
                                     Shadow(
-                                      color: Colors.black
-                                          .withOpacity(0.4), // سایه تیره‌تر
-                                      blurRadius: 15, // محو بودن سایه
-                                      offset: Offset(0, 5), // مکان سایه
+                                      color: Colors.black.withOpacity(0.4),
+                                      blurRadius: 15,
+                                      offset: Offset(0, 5),
                                     ),
                                   ],
                                 ),
@@ -391,7 +403,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 painter: CustomLinePainter(),
               ),
             ),
-            // CustomSpacer(heightFactor: 0.15),
 
             Container(
               padding: EdgeInsets.symmetric(horizontal: 128, vertical: 20),
@@ -462,15 +473,19 @@ class CustomLinePainter extends CustomPainter {
       ..style = PaintingStyle.fill;
 
     final path = Path();
-    path.moveTo(0, size.height / 2); // نقطه شروع از چپ
+    path.moveTo(0, size.height / 2);
     path.quadraticBezierTo(
-      size.width / 2, 0, // نقطه کنترل در وسط
-      size.width, size.height / 2, // نقطه انتها در راست
+      size.width / 2,
+      0,
+      size.width,
+      size.height / 2,
     );
-    path.lineTo(size.width, size.height); // پایین راست
+    path.lineTo(size.width, size.height);
     path.quadraticBezierTo(
-      size.width / 2, size.height * 1.5, // نقطه کنترل پایین وسط
-      0, size.height, // پایین چپ
+      size.width / 2,
+      size.height * 1.5,
+      0,
+      size.height,
     );
     path.close();
 

@@ -705,6 +705,7 @@ class StringConst {
   // images url
   static const String shams_logo = 'assets/images/shams_logo.png';
   static const String badsaba_dark = 'assets/images/products/badsaba_dark.jpg';
+  static const String badsaba_gold = 'assets/images/products/badsaba_gold.jpg';
 
   static const String rice_damsiyah_1 =
       'assets/images/products/rice_damsiyah_1.jpg';

@@ -3,6 +3,7 @@ part of values;
 class AppColors {
   //appBackgroundColor
   static const Color appBackgroundColor = Color.fromARGB(255, 255, 255, 255);
+  static const Color appBackgroundColorOpposite = Color.fromARGB(255, 0, 0, 0);
   static const Color appTextColor = Color.fromARGB(255, 0, 0, 0);
   static const Color appTextColorOpposite = Color.fromARGB(255, 255, 255, 255);
 

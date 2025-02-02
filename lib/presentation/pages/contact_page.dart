@@ -185,7 +185,7 @@ class _ContactPageState extends State<ContactPage>
         builder: (context, state) {
           return PageWrapper(
             selectedRoute: ContactPage.contactPageRoute,
-            selectedPageName: StringConst.CONTACT,
+            selectedPageName: '',
             navBarAnimationController: _controller,
             onLoadingAnimationDone: () {
               _controller.forward();
@@ -194,7 +194,7 @@ class _ContactPageState extends State<ContactPage>
               children: [
                 // background image
                 Container(
-                  color: AppColors.black,
+                  color: AppColors.appBackgroundColor,
                   width: size.width,
                   height: size.height,
                   child: Center(
@@ -202,9 +202,9 @@ class _ContactPageState extends State<ContactPage>
                       // borderRadius:
                       //     widget.borderRadius,
                       child: Image.asset(
-                        StringConst.badsaba_dark,
-                        width: size.width / 2,
-                        height: size.height / 2,
+                        StringConst.badsaba_gold,
+                        width: size.width,
+                        height: size.height,
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -228,18 +228,23 @@ class _ContactPageState extends State<ContactPage>
                               // horizontal: assignWidth(context, 0.10),
                               horizontal: 50),
                           decoration: BoxDecoration(
-                            color: AppColors.white.withOpacity(0.9),
+                            // ignore: deprecated_member_use
+                            color:
+                                AppColors.appBackgroundColor.withOpacity(0.9),
                             boxShadow: [
                               BoxShadow(
-                                color: AppColors.white.withOpacity(0.5),
+                                // ignore: deprecated_member_use
+                                color: AppColors.appBackgroundColor
+                                    .withOpacity(0.5),
                                 spreadRadius: 5,
                                 blurRadius: 7,
                                 offset:
                                     Offset(0, 3), // changes position of shadow
                               ),
                             ],
-                            border:
-                                Border.all(color: AppColors.white, width: 1),
+                            border: Border.all(
+                                color: AppColors.appBackgroundColorOpposite,
+                                width: 0.5),
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: ContentArea(
@@ -351,6 +356,12 @@ class _ContactPageState extends State<ContactPage>
                                             backgroundColor:
                                                 WidgetStateProperty.all(
                                                     AppColors.background),
+                                            surfaceTintColor:
+                                                WidgetStateProperty.all(
+                                                    AppColors.background),
+                                            overlayColor:
+                                                WidgetStateProperty.all(
+                                                    AppColors.white),
                                           ),
                                           height: Sizes.HEIGHT_56,
                                           width: buttonWidth,
