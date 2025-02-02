@@ -1,11 +1,11 @@
 {
-    "name": "David Legend Portfolio",
-    "short_name": "David Legend Portfolio",
-    "start_url": ".",
+    "name": "Orum Azaran Shams",
+    "short_name": "Orum Azaran Shams",
+    "start_url": "/",
     "display": "minimal-ui",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "Portfolio website for David Legend Portfolio. This portfolio chowcases his education, skills & expertise, experience, acheivements and hobbies.",
+    "description": " The store website of Orum Azaran Shams Company",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

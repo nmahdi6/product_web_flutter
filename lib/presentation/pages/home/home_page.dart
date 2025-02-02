@@ -130,7 +130,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     return PageWrapper(
       selectedRoute: HomePage.homePageRoute,
       selectedPageName: StringConst.HOME,
-      backgroundColor: AppColors.black,
+      backgroundColor: AppColors.appBackgroundColor,
       navBarAnimationController: _slideTextController,
       hasSideTitle: false,
       hasUnveilPageAnimation: _arguments.showUnVeilPageAnimation,
@@ -181,11 +181,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           child: Column(
                             children: [
                               Text(
-                                StringConst.APP_NAME,
+                                StringConst.APP_NAME_ENGLISH,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   fontSize: 16,
-                                  fontWeight: FontWeight.w500,
+                                  fontWeight: FontWeight.w700,
                                   color: Colors.white, // رنگ متن
                                 ),
                               ),
@@ -246,7 +246,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           text: StringConst.HOME_MAIN_TITLE_TEXT,
                           maxLines: 20,
                           textStyle: textTheme.displayMedium?.copyWith(
-                            color: AppColors.white,
+                            color: AppColors.appTextColor,
                             height: 1.6,
                             fontSize: 24,
                             // fontSize: headerFontSize,
@@ -264,7 +264,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       text: StringConst.HOME_MAIN_TEXT,
                       maxLines: 20,
                       textStyle: textTheme.displayMedium?.copyWith(
-                        color: AppColors.white,
+                        color: AppColors.appTextColor,
                         height: 1.6,
                         fontSize: 20,
                         // fontSize: headerFontSize,
@@ -302,7 +302,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   title: StringConst.NEW_PRODUCT,
                   titleTextStyle: textTheme.headlineMedium?.copyWith(
                       fontWeight: FontWeight.w600,
-                      color: AppColors.white,
+                      color: AppColors.appTextColor,
                       fontSize: 24),
                 ),
               ],
@@ -376,7 +376,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   title: StringConst.POPULAR_PRODUCT,
                   titleTextStyle: textTheme.headlineMedium?.copyWith(
                       fontWeight: FontWeight.w600,
-                      color: AppColors.white,
+                      color: AppColors.appTextColor,
                       fontSize: 24),
                 ),
               ],

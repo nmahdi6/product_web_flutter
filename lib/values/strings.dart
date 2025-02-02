@@ -181,12 +181,13 @@ class StringConst {
   static const String OR = "or";
 
   //Font Family
-  static const String FONT_FAMILY = "Try Clother";
+  static const String FONT_FAMILY = "sofia_pro";
 
   //strings
   static const String APP_NAME = "شرکت بازرگانی اروم آذران شمس";
+  static const String APP_NAME_ENGLISH = "Orum Azaran Shams Company";
   static const String APP_TITLE = "شرکت بازرگانی اروم آذران شمس";
-  static const String SITE_URL = "https://davidcobbina.com";
+  static const String SITE_URL = "http://orumazaranshams.com/.com";
 
   static const String HOME = "خانه";
   static const String PRODUCTS = "محصولات";
