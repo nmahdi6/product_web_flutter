@@ -715,7 +715,7 @@ class StringConst {
   // static const String badsaba_gold = 'assets/images/products/badsaba_gold.jpg';
 
   static const String rice_damsiyah_1 =
-      'assets/images/products/rice_damsiyah_1.jpeg';
+      'assets/images/products/rice_damsiyah_1.jpg';
   // static const String rice_damsiyah_2 =
   //     'assets/images/products/rice_damsiyah_2.jpg';
   // static const String rice_damsiyah_3 =
