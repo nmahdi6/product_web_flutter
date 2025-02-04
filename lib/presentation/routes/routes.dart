@@ -52,7 +52,14 @@ class RouteConfiguration {
     Path(
       r'^' + HomePage.homePageRoute,
       (context, matches) {
-        // ارسال MusicController به HomePage
+        AudioPlayer audioPlayer = AudioPlayer();
+        MusicController musicController = MusicController(audioPlayer);
+        return HomePage(musicController: musicController);
+      },
+    ),
+    Path(
+      r'^/$', // اضافه کردن مسیر اصلی '/'
+      (context, matches) {
         AudioPlayer audioPlayer = AudioPlayer();
         MusicController musicController = MusicController(audioPlayer);
         return HomePage(musicController: musicController);

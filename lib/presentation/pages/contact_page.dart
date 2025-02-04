@@ -202,7 +202,7 @@ class _ContactPageState extends State<ContactPage>
                       // borderRadius:
                       //     widget.borderRadius,
                       child: Image.asset(
-                        StringConst.badsaba_gold,
+                        StringConst.badsaba_light,
                         width: size.width,
                         height: size.height,
                         fit: BoxFit.cover,

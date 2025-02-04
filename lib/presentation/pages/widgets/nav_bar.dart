@@ -218,31 +218,4 @@ class NavBar extends StatelessWidget {
     items.add(SpaceW24());
     return items;
   }
-
-  // List<Widget> _buildNavItems(
-  //   BuildContext context, {
-  //   required List<NavItemData> menuList,
-  // }) {
-  //   List<Widget> items = [];
-  //   for (int index = 0; index < menuList.length; index++) {
-  //     items.add(
-  //       NavItem(
-  //         controller: controller,
-  //         title: menuList[index].name,
-  //         route: menuList[index].route,
-  //         titleColor: titleColor,
-  //         selectedColor: selectedTitleColor,
-  //         index: index + 1,
-  //         isSelected: menuList[index].route == selectedRouteName ? true : false,
-  //         onTap: () {
-  //           if (onNavItemWebTap != null) {
-  //             onNavItemWebTap!(menuList[index].route);
-  //           }
-  //         },
-  //       ),
-  //     );
-  //     items.add(SpaceW24());
-  //   }
-  //   return items;
-  // }
 }

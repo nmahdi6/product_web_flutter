@@ -814,7 +814,7 @@ class Data_2 {
     ProductDealItem(
       title: StringConst.NIKE_BLUE,
       subtitle: StringConst.AIR_BLUE,
-      imagePath: ImagePath.RICE_4,
+      imagePath: ImagePath.RICE_1,
       price: "\$250",
     ),
     ProductDealItem(

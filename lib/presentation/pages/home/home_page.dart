@@ -1,4 +1,5 @@
 import 'package:aerium/core/layout/adaptive.dart';
+import 'package:aerium/main.dart';
 import 'package:aerium/presentation/pages/products/product_detail_page.dart'
     hide ProductDealItem;
 import 'package:aerium/presentation/pages/home/widgets/home_page_header.dart';
@@ -18,7 +19,9 @@ import 'package:aerium/values/values.dart';
 class HomePage extends StatefulWidget {
   static const String homePageRoute = StringConst.HOME_PAGE;
 
-  HomePage({Key? key, musicController}) : super(key: key);
+  final MusicController musicController;
+
+  HomePage({Key? key, required this.musicController}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -28,7 +31,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   GlobalKey key = GlobalKey();
   ScrollController _scrollController = ScrollController();
   late AnimationController _viewProjectsController;
-  // late AnimationController _recentWorksController;
   late AnimationController _slideTextController;
   late NavigationArguments _arguments;
 
@@ -43,19 +45,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       vsync: this,
       duration: Animations.slideAnimationDurationLong,
     );
-    // _recentWorksController = AnimationController(
-    //   vsync: this,
-    //   duration: Animations.slideAnimationDurationLong,
-    // );
 
     super.initState();
   }
 
   void getArguments() {
     final Object? args = ModalRoute.of(context)!.settings.arguments;
-    // if page is being loaded for the first time, args will be null.
-    // if args is null, I set boolean values to run the appropriate animation
-    // In this case, if null run loading animation, if not null run the unveil animation
     if (args == null) {
       _arguments.showUnVeilPageAnimation = false;
     } else {
@@ -74,9 +69,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     getArguments();
-    // double projectItemHeight = assignHeight(context, 0.4);
-    // double subHeight = (3 / 4) * projectItemHeight;
-    // double extra = projectItemHeight - subHeight;
     TextTheme textTheme = Theme.of(context).textTheme;
     Size size = MediaQuery.of(context).size;
 
@@ -86,41 +78,40 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
     final myItems = [
       Container(
-        margin: EdgeInsets.symmetric(horizontal: assignHeight(context, 0.15)),
+        // margin: EdgeInsets.symmetric(horizontal: assignHeight(context, 0.15)),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15), // شعاع گوشه‌ها
+          borderRadius: BorderRadius.circular(15),
           image: DecorationImage(
-            image: AssetImage(StringConst.tea_lil_2), // مسیر تصویر
-            // fit: BoxFit.cover,
+            image: AssetImage(StringConst.tea_banner),
           ),
         ),
       ),
       Container(
-        margin: EdgeInsets.symmetric(horizontal: assignHeight(context, 0.15)),
+        // margin: EdgeInsets.symmetric(horizontal: assignHeight(context, 0.15)),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15), // شعاع گوشه‌ها
+          borderRadius: BorderRadius.circular(15),
           image: DecorationImage(
-            image: AssetImage(StringConst.rice_damsiyah_3), // مسیر تصویر
+            image: AssetImage(StringConst.rice_banner),
             fit: BoxFit.cover,
           ),
         ),
       ),
       Container(
-        margin: EdgeInsets.symmetric(horizontal: assignHeight(context, 0.15)),
+        // margin: EdgeInsets.symmetric(horizontal: assignHeight(context, 0.15)),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15), // شعاع گوشه‌ها
+          borderRadius: BorderRadius.circular(15),
           image: DecorationImage(
-            image: AssetImage(StringConst.cake_oydo_1), // مسیر تصویر
+            image: AssetImage(StringConst.cookie_banner),
             fit: BoxFit.cover,
           ),
         ),
       ),
       Container(
-        margin: EdgeInsets.symmetric(horizontal: assignHeight(context, 0.15)),
+        // margin: EdgeInsets.symmetric(horizontal: assignHeight(context, 0.15)),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15), // شعاع گوشه‌ها
+          borderRadius: BorderRadius.circular(15),
           image: DecorationImage(
-            image: AssetImage(StringConst.dates_kabkab_1), // مسیر تصویر
+            image: AssetImage(StringConst.dates_banner),
             fit: BoxFit.cover,
           ),
         ),
@@ -137,7 +128,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       onLoadingAnimationDone: () {
         _slideTextController.forward();
       },
-      // loading first
       customLoadingAnimation: LoadingHomePageAnimation(
         text: StringConst.COMPANY_NAME_FA,
         text_2: StringConst.COMPANY_NAME_EN,
@@ -146,319 +136,304 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           _slideTextController.forward();
         },
       ),
-
       child: Directionality(
         textDirection: TextDirection.rtl,
-        child: ListView(
-          padding: EdgeInsets.zero,
-          controller: _scrollController,
-          physics: const BouncingScrollPhysics(
-            parent: AlwaysScrollableScrollPhysics(),
-          ),
-          children: [
-            // HomePageHeader(
-            //   controller: _slideTextController,
-            //   scrollToWorksKey: key,
-            // ),
-            Container(
-              width: size.width,
-              height: size.height,
-              child: Column(
-                children: [
-                  Stack(children: [
-                    SizedBox(
-                      height: assignHeight(context, 0.58), // ارتفاع منحنی
-                      width: double.infinity,
-                      child: CustomPaint(
-                        painter: HeaderPainter(),
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 100),
-                          child: Column(
-                            children: [
-                              Text(
-                                StringConst.APP_NAME_ENGLISH,
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontFamily: StringConst.FONT_FAMILY,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w900,
-                                  color: AppColors.white,
-                                  shadows: [
-                                    Shadow(
-                                      color:
-                                          Colors.orangeAccent.withOpacity(0.7),
-                                      blurRadius: 70,
-                                      offset: Offset(0, 3),
-                                    ),
-                                    Shadow(
-                                      color: Colors.black.withOpacity(0.4),
-                                      blurRadius: 15,
-                                      offset: Offset(0, 5),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(
-                                height: 30,
-                              ),
-                              Text(
-                                StringConst.DEV_INTRO,
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontFamily: StringConst.FONT_FAMILY,
-                                  fontSize: 28,
-                                  fontWeight: FontWeight.w900,
-                                  color:
-                                      const Color.fromARGB(255, 255, 254, 208),
-                                  shadows: [
-                                    Shadow(
-                                      color:
-                                          Colors.orangeAccent.withOpacity(0.8),
-                                      blurRadius: 10,
-                                      offset: Offset(0, 3),
-                                    ),
-                                    Shadow(
-                                      color: Colors.black.withOpacity(0.4),
-                                      blurRadius: 15,
-                                      offset: Offset(0, 5),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
+        child: Scaffold(
+          body: ListView(
+            padding: EdgeInsets.zero,
+            controller: _scrollController,
+            physics: const BouncingScrollPhysics(
+              parent: AlwaysScrollableScrollPhysics(),
+            ),
+            children: [
+              Container(
+                width: size.width,
+                height: size.height,
+                child: Column(
+                  children: [
+                    Stack(children: [
+                      SizedBox(
+                        height: assignHeight(context, 0.58),
+                        width: double.infinity,
+                        child: CustomPaint(
+                          painter: HeaderPainter(),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 100),
-                          child: Container(
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 100),
+                            child: Column(
+                              children: [
+                                Text(
+                                  StringConst.APP_NAME_ENGLISH,
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontFamily: StringConst.FONT_FAMILY,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w900,
+                                    color: AppColors.white,
+                                    shadows: [
+                                      Shadow(
+                                        color: Colors.orangeAccent
+                                            .withOpacity(0.7),
+                                        blurRadius: 70,
+                                        offset: Offset(0, 3),
+                                      ),
+                                      Shadow(
+                                        color: Colors.black.withOpacity(0.4),
+                                        blurRadius: 15,
+                                        offset: Offset(0, 5),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 30,
+                                ),
+                                Text(
+                                  StringConst.DEV_INTRO,
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontFamily: StringConst.FONT_FAMILY,
+                                    fontSize: 28,
+                                    fontWeight: FontWeight.w900,
+                                    color: const Color.fromARGB(
+                                        255, 255, 254, 208),
+                                    shadows: [
+                                      Shadow(
+                                        color: Colors.orangeAccent
+                                            .withOpacity(0.8),
+                                        blurRadius: 10,
+                                        offset: Offset(0, 3),
+                                      ),
+                                      Shadow(
+                                        color: Colors.black.withOpacity(0.4),
+                                        blurRadius: 15,
+                                        offset: Offset(0, 5),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 100),
+                            child: Container(
                               width: assignWidth(context, 0.15),
                               height: assignWidth(context, 0.15),
                               child: Image(
-                                  image: AssetImage(StringConst.shams_logo))),
-                        ),
-                      ],
-                    ),
-                  ]),
-
-                  SizedBox(
-                    height: assignHeight(context, 0.018),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 25, vertical: 2),
-                    child: Row(
-                      children: [
-                        AnimatedTextSlideBoxTransition(
-                          controller: _slideTextController,
-                          text: StringConst.HOME_MAIN_TITLE_TEXT,
-                          maxLines: 20,
-                          textStyle: textTheme.displayMedium?.copyWith(
-                            color: AppColors.appTextColor,
-                            height: 1.6,
-                            fontSize: 24,
-                            // fontSize: headerFontSize,
+                                image: AssetImage(StringConst.shams_logo),
+                              ),
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
+                    ]),
+                    SizedBox(
+                      height: assignHeight(context, 0.018),
                     ),
-                  ),
-                  SpaceH20(),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 25, vertical: 2),
-                    child: AnimatedTextSlideBoxTransition(
-                      controller: _slideTextController,
-                      text: StringConst.HOME_MAIN_TEXT,
-                      maxLines: 20,
-                      textStyle: textTheme.displayMedium?.copyWith(
-                        color: AppColors.appTextColor,
-                        height: 1.6,
-                        fontSize: 20,
-                        // fontSize: headerFontSize,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 25, vertical: 2),
+                      child: Row(
+                        children: [
+                          AnimatedTextSlideBoxTransition(
+                            controller: _slideTextController,
+                            text: StringConst.HOME_MAIN_TITLE_TEXT,
+                            maxLines: 20,
+                            textStyle: textTheme.displayMedium?.copyWith(
+                              color: AppColors.appTextColor,
+                              height: 1.6,
+                              fontSize: 24,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                  ),
-                  // ),
-                  SizedBox(
-                    height: assignHeight(context, 0.02),
-                  ),
-                ],
+                    SpaceH20(),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 25, vertical: 2),
+                      child: AnimatedTextSlideBoxTransition(
+                        controller: _slideTextController,
+                        text: StringConst.HOME_MAIN_TEXT,
+                        maxLines: 20,
+                        textStyle: textTheme.displayMedium?.copyWith(
+                          color: AppColors.appTextColor,
+                          height: 1.6,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: assignHeight(context, 0.02),
+                    ),
+                  ],
+                ),
               ),
-            ),
-
-            // new product list
-            // CustomSpacer(heightFactor: 0.15),
-
-            Container(
-              height: assignHeight(context, 0.57),
-              width: screenWidth,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+              Container(
+                height: 400,
+                width: screenWidth,
                 child: AnotherCarousel(
                   images: myItems,
                   dotSize: 10,
-                  indicatorBgPadding: 5,
+                  indicatorBgPadding: 1,
                 ),
               ),
-            ),
-            CustomSpacer(heightFactor: 0.05),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SectionHeading1(
-                  title: StringConst.NEW_PRODUCT,
-                  titleTextStyle: textTheme.headlineMedium?.copyWith(
+              CustomSpacer(heightFactor: 0.05),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SectionHeading1(
+                    title: StringConst.NEW_PRODUCT,
+                    titleTextStyle: textTheme.headlineMedium?.copyWith(
                       fontWeight: FontWeight.w600,
                       color: AppColors.appTextColor,
-                      fontSize: 24),
-                ),
-              ],
-            ),
-            CustomSpacer(heightFactor: 0.02),
-
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: size.width / 15),
-              height: 2,
-              width: size.width,
-              child: CustomPaint(
-                painter: CustomLinePainter(),
+                      fontSize: 24,
+                    ),
+                  ),
+                ],
               ),
-            ),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 128, vertical: 20),
-              child: Wrap(
-                spacing: 26,
-                runSpacing: 26,
-                children: List.generate(Data_2.newProductItems.length, (index) {
-                  var product = Data_2.newProductItems[index];
-                  // ignore: unnecessary_type_check
-                  var productItem = product is ProductDealItem
-                      ? product.toProductItem()
-                      : product;
+              CustomSpacer(heightFactor: 0.02),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: size.width / 15),
+                height: 2,
+                width: size.width,
+                child: CustomPaint(
+                  painter: CustomLinePainter(),
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 128, vertical: 20),
+                child: Wrap(
+                  spacing: 26,
+                  runSpacing: 26,
+                  children:
+                      List.generate(Data_2.newProductItems.length, (index) {
+                    var product = Data_2.newProductItems[index];
+                    var productItem = product is ProductDealItem
+                        ? product.toProductItem()
+                        : product;
 
-                  return Container(
-                    height: 400,
-                    width: 220,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(Sizes.RADIUS_20)),
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          PageRouteBuilder(
-                            transitionDuration:
-                                const Duration(milliseconds: 150),
-                            reverseTransitionDuration:
-                                const Duration(milliseconds: 100),
-                            pageBuilder:
-                                (context, animation, secondaryAnimation) {
-                              return ProductDetailPage(
-                                product: productItem as ProductItem,
-                              );
-                            },
+                    return Container(
+                      height: 400,
+                      width: 220,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(Sizes.RADIUS_20),
+                      ),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                              transitionDuration:
+                                  const Duration(milliseconds: 150),
+                              reverseTransitionDuration:
+                                  const Duration(milliseconds: 100),
+                              pageBuilder:
+                                  (context, animation, secondaryAnimation) {
+                                return ProductDetailPage(
+                                  product: productItem as ProductItem,
+                                );
+                              },
+                            ),
+                          );
+                        },
+                        child: Hero(
+                          tag: product.imagePath,
+                          child: ProductDealCard(
+                            title: product.title,
+                            subtitle: product.subtitle,
+                            price: product.price,
+                            imagePath: product.imagePath,
                           ),
-                        );
-                      },
-                      child: Hero(
-                        tag: product.imagePath,
-                        child: ProductDealCard(
-                          title: product.title,
-                          subtitle: product.subtitle,
-                          price: product.price,
-                          imagePath: product.imagePath,
                         ),
                       ),
-                    ),
-                  );
-                }),
+                    );
+                  }),
+                ),
               ),
-            ),
-
-            // popular product list
-            CustomSpacer(heightFactor: 0.15),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SectionHeading1(
-                  title: StringConst.POPULAR_PRODUCT,
-                  titleTextStyle: textTheme.headlineMedium?.copyWith(
+              CustomSpacer(heightFactor: 0.15),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SectionHeading1(
+                    title: StringConst.POPULAR_PRODUCT,
+                    titleTextStyle: textTheme.headlineMedium?.copyWith(
                       fontWeight: FontWeight.w600,
                       color: AppColors.appTextColor,
-                      fontSize: 24),
-                ),
-              ],
-            ),
-
-            CustomSpacer(heightFactor: 0.02),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: size.width / 15),
-              height: 2,
-              width: size.width,
-              child: CustomPaint(
-                painter: CustomLinePainter(),
+                      fontSize: 24,
+                    ),
+                  ),
+                ],
               ),
-            ),
+              CustomSpacer(heightFactor: 0.02),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: size.width / 15),
+                height: 2,
+                width: size.width,
+                child: CustomPaint(
+                  painter: CustomLinePainter(),
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 128, vertical: 20),
+                child: Wrap(
+                  spacing: 26,
+                  runSpacing: 26,
+                  children:
+                      List.generate(Data_2.popularProductItems.length, (index) {
+                    var product = Data_2.popularProductItems[index];
+                    var productItem = product is ProductDealItem
+                        ? product.toProductItem()
+                        : product;
 
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 128, vertical: 20),
-              child: Wrap(
-                spacing: 26,
-                runSpacing: 26,
-                children:
-                    List.generate(Data_2.popularProductItems.length, (index) {
-                  var product = Data_2.popularProductItems[index];
-                  // ignore: unnecessary_type_check
-                  var productItem = product is ProductDealItem
-                      ? product.toProductItem()
-                      : product;
-
-                  return Container(
-                    height: 400,
-                    width: 220,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(Sizes.RADIUS_20)),
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          PageRouteBuilder(
-                            transitionDuration:
-                                const Duration(milliseconds: 150),
-                            reverseTransitionDuration:
-                                const Duration(milliseconds: 100),
-                            pageBuilder:
-                                (context, animation, secondaryAnimation) {
-                              return ProductDetailPage(
-                                product: productItem as ProductItem,
-                              );
-                            },
+                    return Container(
+                      height: 400,
+                      width: 220,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(Sizes.RADIUS_20),
+                      ),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                              transitionDuration:
+                                  const Duration(milliseconds: 150),
+                              reverseTransitionDuration:
+                                  const Duration(milliseconds: 100),
+                              pageBuilder:
+                                  (context, animation, secondaryAnimation) {
+                                return ProductDetailPage(
+                                  product: productItem as ProductItem,
+                                );
+                              },
+                            ),
+                          );
+                        },
+                        child: Hero(
+                          tag: product.imagePath,
+                          child: ProductDealCard(
+                            title: product.title,
+                            subtitle: product.subtitle,
+                            price: product.price,
+                            imagePath: product.imagePath,
                           ),
-                        );
-                      },
-                      child: Hero(
-                        tag: product.imagePath,
-                        child: ProductDealCard(
-                          title: product.title,
-                          subtitle: product.subtitle,
-                          price: product.price,
-                          imagePath: product.imagePath,
                         ),
                       ),
-                    ),
-                  );
-                }),
+                    );
+                  }),
+                ),
               ),
-            ),
-
-            CustomSpacer(heightFactor: 0.15),
-            AnimatedFooter(),
-            SimpleFooterSm(),
-          ],
+              CustomSpacer(heightFactor: 0.15),
+              AnimatedFooter(),
+              SimpleFooterSm(),
+            ],
+          ),
         ),
       ),
     );

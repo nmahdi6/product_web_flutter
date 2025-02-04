@@ -49,7 +49,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
               // borderRadius:
               //     widget.borderRadius,
               child: Image.asset(
-                StringConst.badsaba_dark,
+                StringConst.badsaba_light,
                 width: size.width / 2,
                 height: size.height / 2,
                 fit: BoxFit.cover,

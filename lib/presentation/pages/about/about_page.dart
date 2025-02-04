@@ -151,7 +151,7 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
                 // borderRadius:
                 //     widget.borderRadius,
                 child: Image.asset(
-                  StringConst.badsaba_gold,
+                  StringConst.badsaba_light,
                   width: size.width,
                   height: size.height,
                   fit: BoxFit.cover,
