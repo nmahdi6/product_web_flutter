@@ -82,7 +82,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           image: DecorationImage(
-            image: AssetImage(StringConst.tea_banner),
+            image: AssetImage(ImagePath.tea_banner),
           ),
         ),
       ),
@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           image: DecorationImage(
-            image: AssetImage(StringConst.rice_banner),
+            image: AssetImage(ImagePath.rice_banner),
             fit: BoxFit.cover,
           ),
         ),
@@ -101,7 +101,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           image: DecorationImage(
-            image: AssetImage(StringConst.cookie_banner),
+            image: AssetImage(ImagePath.cookie_banner),
             fit: BoxFit.cover,
           ),
         ),
@@ -111,7 +111,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           image: DecorationImage(
-            image: AssetImage(StringConst.dates_banner),
+            image: AssetImage(ImagePath.dates_banner),
             fit: BoxFit.cover,
           ),
         ),
@@ -225,7 +225,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               width: assignWidth(context, 0.15),
                               height: assignWidth(context, 0.15),
                               child: Image(
-                                image: AssetImage(StringConst.shams_logo),
+                                image: AssetImage(ImagePath.shams_logo),
                               ),
                             ),
                           ),

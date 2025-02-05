@@ -4,6 +4,8 @@ class StringConst {
   //strings
 
   //Verification Screen
+  static const String TOMAN = "تومان";
+
   static const String VERIFICATION_CODE = "Verification Code";
   static const String VERIFICATION_TEXT = "We texted you a code.";
   static const String ENTER_CODE = "Please enter it below.";
@@ -46,8 +48,9 @@ class StringConst {
 
   // rice
   static const String RICE = "برنج دمسیاه";
-  static const String ABOUT_RICE = "برنج دمسیاه اعلا";
-  // static const String MAX_RICE = "موجود نیست";
+  static const String ABOUT_RICE = "برنج دمسیاه اعلا کیلویی";
+  static const String PRICE_RICE = "160,000";
+
   static const String NIKE_TC = "Nike TC 7900";
   static const String NIKE_TC_TAG = "TC 7900";
   static const String REMAINING = "مانده : ";
@@ -55,12 +58,33 @@ class StringConst {
   static const String AIR_BLUE = "Air-Blue";
   static const String NIKE_BLUE = "Nike Air-Blue";
 
+  //ROTAB
+  static const String DATES = "خرما کبکاب خشت";
+  static const String ABOUT_DATES_1 = "خرمای  کبکاب خشت ۱ کیلوگرمی";
+  static const String PRICE_DATES_1 = "100,000";
+  static const String ABOUT_DATES_2 = "خرمای  کبکاب خشت ۲ کیلوگرمی";
+  static const String PRICE_DATES_2 = "190,000";
+
+  static const String ROTAB_ASALI = "رطب عسلی";
+  static const String ABOUT_ROTAB_ASALI =
+      "رطب عسلی ۲ ردیف ۶۵۰ گرمی" "رطب عسلی ۲ ردیف ۶۵۰ گرمی";
+  static const String PRICE_ROTAB_ASALI = "100,000";
+
+  static const String ROTAB_MAZAFATI = "رطب مضافتی";
+  static const String ABOUT_ROTAB_MAZAFATI_2 = "رطب مضافتی ۲ ردیف ۷۰۰ گرمی";
+  static const String PRICE_ROTAB_MAZAFATI_2 = "170,000";
+  static const String ABOUT_ROTAB_MAZAFATI_3 = "رطب مضافتی ۳ ردیف ۷۰۰ گرمی";
+  static const String PRICE_ROTAB_MAZAFATI_3 = "140,000";
+
+  //COOKIE
   static const String AIR_GREEN = "Air-Green";
   static const String NIKE_GREEN = "Nike Air-Green";
   static const String TROUSERS = "Trousers";
   static const String COOKIE = "کلوچه اویدو";
-  static const String ABOUT_COOKIE = "بهترین کلوچه اویدو";
-  // static const String MAX_COOKIE = "موجود است";
+  static const String ABOUT_COOKIE_12 = "بهترین کلوچه اویدو ۱۲ عددی";
+  static const String ABOUT_COOKIE_36 = "بهترین کلوچه اویدو ۳۶ عددی";
+  static const String PRICE_COOKIE_12 = "102,000";
+  static const String PRICE_COOKIE_36 = "306,000";
 
   //Home Screen
   static const String CATEGORIES = "Categories";
@@ -112,7 +136,8 @@ class StringConst {
   static const String NECKLACE_1 = "Silver Necklace";
   static const String NECKLACE_1_TAG = "Necklace";
   static const String LILTEA = "چای لیل";
-  static const String ABOUT_LILTEA = "چای لیل خوش طعم";
+  static const String ABOUT_LILTEA = "چای لیل خوش طعم ۴۵۰ گرمی";
+  static const String PRICE_LILTEA = "175,000";
   // static const String MAX_LILTEA = "۲۰ عدد";
   static const String NECKLACE_3 = "Banana Necklace";
   static const String NECKLACE_3_TAG = "Necklace";
@@ -256,15 +281,14 @@ class StringConst {
       'ما باور داریم که کیفیت، صداقت و رضایت مشتریان، اصولی است که ما را به رشد و موفقیت مداوم هدایت می‌کند. از اینکه ما را انتخاب کرده‌اید، سپاسگزاریم و امیدواریم محصولات ما بخشی از لحظات شیرین زندگی شما باشند.\n\n'
       'ما کیفیت را به زندگی شما هدیه می‌دهیم!';
   static const String ADDRESS =
-      '📍 آدرس: ارومیه ـ خیابان ورزش ـ روبروی ورزشگاه شش هزار نفری الغدیر ـ ساختمان تجاری جالینوس ـ طبقه سوم ـ واحد ۹';
-  static const String TELFEX_FOOTER = '📞 تلفکس :   33431321-044';
-  static const String PHONE_NUMBER_FOOTER =
-      '📞 شماره تماس / واتساپ / تلگرام :  09302366747';
-  static const String EMAIL_FOOTER =
-      '📧 ایمیل سایت : orumazaranshams@gmail.com';
+      'آدرس: ارومیه ـ خیابان ورزش ـ روبروی ورزشگاه الغدیر ـ ساختمان تجاری جالینوس ـ طبقه سوم ـ واحد ۹';
+  static const String TELFEX_FOOTER =
+      'تلفکس:  33431321-044   همراه: 09302366747';
+  static const String PHONE_NUMBER_FOOTER = 'واتساپ: 09302366747';
+  static const String EMAIL_FOOTER = 'ایمیل سایت: orumazaranshams@gmail.com';
   static const String EMAIL_SUPPORT_FOOTER =
-      '📧 ایمیل پشتیبانی :  syyed.mohammad43@gmail.com';
-  static const String WEBSITE_FOOTER = '🌐 وبسایت : www.orumazaranshams.com';
+      'ایمیل پشتیبانی: syyed.mohammad43@gmail.com';
+  static const String WEBSITE_FOOTER = 'وبسایت: www.orumazaranshams.com';
   static const String ABOUT_DEV_CATCH_LINE =
       "I am a passionate front-end developer and ui/ux designer with a keen eye for details.";
   static const String ABOUT_DEV_CATCH_LINE_1 = "I specialize in building high ";
@@ -703,47 +727,6 @@ class StringConst {
   static const String GET_IN_TOUCH_POINT = "/getintouch";
 
   // audio url
-  static const String hans_zimmer_stay = 'assets/audio/hans_zimmer_stay.mp3';
-  static const String hans_zimmer_mountains =
-      'assets/audio/hans_zimmer_mountains.mp3';
-
-  // images url
-  static const String shams_logo = 'assets/images/shams_logo.png';
-  static const String badsaba_light =
-      'assets/images/products/badsaba_light.jpg';
-  // static const String badsaba_dark = 'assets/images/products/badsaba_dark.jpg';
-  // static const String badsaba_gold = 'assets/images/products/badsaba_gold.jpg';
-
-  static const String rice_damsiyah_1 =
-      'assets/images/products/rice_damsiyah_1.jpg';
-  // static const String rice_damsiyah_2 =
-  //     'assets/images/products/rice_damsiyah_2.jpg';
-  // static const String rice_damsiyah_3 =
-  //     'assets/images/products/rice_damsiyah_3.jpg';
-  // static const String rice_damsiyah_4 =
-  //     'assets/images/products/rice_damsiyah_4.png';
-
-  static const String dates_kabkab_1 =
-      'assets/images/products/dates_kabkab_1.png';
-  // static const String dates_kabkab_2 =
-  //     'assets/images/products/dates_kabkab_2.jpg';
-  // static const String dates_kabkab_3 =
-  //     'assets/images/products/dates_kabkab_3.jpg';
-  // static const String dates_kabkab_4 =
-  //     'assets/images/products/dates_kabkab_4.jpg';
-
-  static const String cake_oydo_1 = 'assets/images/products/cake_oydo_1.jpeg';
-  // static const String cake_oydo_2 = 'assets/images/products/cake_oydo_2.jpg';
-  // static const String cake_oydo_3 = 'assets/images/products/cake_oydo_3.jpg';
-  // static const String cake_oydo_4 = 'assets/images/products/cake_oydo_4.jpg';
-
-  static const String tea_lil_1 = 'assets/images/products/tea_lil_1.jpeg';
-  // static const String tea_lil_2 = 'assets/images/products/tea_lil_2.webp';
-  // static const String tea_lil_3 = 'assets/images/products/tea_lil_3.png';
-
-  static const String tea_banner = 'assets/images/products/tea_banner.jpg';
-  static const String rice_banner = 'assets/images/products/rice_banner.jpg';
-  static const String dates_banner = 'assets/images/products/dates_banner.jpg';
-  static const String cookie_banner =
-      'assets/images/products/cookie_banner.jpg';
+  static const String secound_music = 'assets/audio/secound_music.mp3';
+  static const String first_music = 'assets/audio/first_music.mp3';
 }

@@ -101,7 +101,7 @@ class _AnimatedFooterState extends State<AnimatedFooter>
                       width: circleImageSize,
                       height: circleImageSize,
                       child: Image.asset(
-                        StringConst.shams_logo,
+                        ImagePath.shams_logo,
                         // ImagePath.CIRCLE,
                         color: AppColors.white,
                       ),

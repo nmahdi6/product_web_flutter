@@ -55,9 +55,10 @@ dependencies:
   
   gap: ^3.0.1
   carousel_slider: ^5.0.0
-  just_audio: ^0.9.42
-  audioplayers: ^6.1.0
+  just_audio: ^0.9.46
+  audioplayers: ^6.1.1
   another_carousel_pro: ^1.0.2
+  url_strategy: ^0.3.0
 
 dev_dependencies:
   flutter_test:

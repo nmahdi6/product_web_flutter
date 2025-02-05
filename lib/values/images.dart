@@ -10,13 +10,13 @@ class ImagePath {
   //Air-Max-90
   static const String AIR_MAX_90 = "$imageDir/air-max-90.png";
   static const String AIR_MAX_90_SLIDE_1 = "$imageDir/air-max-90-slide-1.png";
-  static const String RICE_URL = StringConst.rice_damsiyah_1;
+  static const String RICE_URL = ImagePath.rice_damsiyah_1;
   static const String AIR_MAX_90_SLIDE_3 = "$imageDir/air-max-90-slide-3.png";
 
   //Air-Max-290
   static const String AIR_MAX_2090_SLIDE_1 =
       "$imageDir/air-max-2090-slide-1.png";
-  static const String LIL_TEA = StringConst.tea_lil_1;
+  static const String LIL_TEA = ImagePath.tea_lil_1;
   static const String AIR_MAX_2090_SLIDE_3 =
       "$imageDir/air-max-2090-slide-3.png";
   static const String AIR_MAX_2090_SLIDE_4 =
@@ -42,7 +42,7 @@ class ImagePath {
   static const String NIKE_TC_7900_SLIDE_3 =
       "$imageDir/nike-tc-7900-slide-3.png";
 
-  static const String RICE_1 = StringConst.rice_damsiyah_1;
+  static const String RICE_1 = ImagePath.rice_damsiyah_1;
   static const String NIKE_GREEN_SHOE = "$imageDir/nike_green_shoe.png";
 
   //Shirts
@@ -53,7 +53,7 @@ class ImagePath {
   //Suede Shirts
   static const String SUEDE_DENIM_1 = "$imageDir/suede_denim.png";
   static const String SUEDE_DENIM_2 = "$imageDir/suede_denim_2.png";
-  static const String COOKIE_URL = StringConst.cake_oydo_1;
+  static const String COOKIE_URL = ImagePath.cake_oydo_1;
 
   //Gucci Shirts
   static const String GUCCI_JACKET = "$imageDir/gucci_jacket.png";
@@ -65,7 +65,7 @@ class ImagePath {
   static const String NECKLACE_1 = "$imageDir/necklace_1.png";
   static const String NECKLACE_2 = "$imageDir/necklace_2.png";
   static const String NECKLACE_3 = "$imageDir/necklace_3.png";
-  static const String LILTEA_URL = StringConst.tea_lil_1;
+  static const String LILTEA_URL = ImagePath.tea_lil_1;
   static const String NECKLACE_5 = "$imageDir/necklace_5.png";
 
   //Brands
@@ -260,4 +260,33 @@ class ImagePath {
   static const String OUTFITR_4 = "$projectsDir/outfitr/outfitr_4.jpeg";
   static const String OUTFITR_5 = "$projectsDir/outfitr/outfitr_5.jpeg";
   static const String OUTFITR_6 = "$projectsDir/outfitr/outfitr_6.jpeg";
+
+  //
+
+  // images url
+  static const String shams_logo = 'assets/images/products/shams_logo.png';
+  static const String badsaba_light =
+      'assets/images/products/badsaba_light.jpeg';
+
+  static const String rice_damsiyah_1 =
+      'assets/images/products/rice_damsiyah_1.jpg';
+
+  static const String rotab_asali_1 = 'assets/images/products/rotab_1.jpeg';
+  static const String rotab_asali_2 = 'assets/images/products/rotab_2.jpg';
+  static const String rotab_asali_3 = 'assets/images/products/rotab_3.jpg';
+
+  static const String rotab_mazafati =
+      'assets/images/products/rotab_mazafati.png';
+
+  static const String dates_kabkab = 'assets/images/products/dates_kabkab.jpg';
+
+  static const String cake_oydo_1 = 'assets/images/products/cake_oydo_1.jpeg';
+
+  static const String tea_lil_1 = 'assets/images/products/tea_lil_1.jpeg';
+
+  static const String tea_banner = 'assets/images/products/tea_banner.jpg';
+  static const String rice_banner = 'assets/images/products/rice_banner.jpg';
+  static const String dates_banner = 'assets/images/products/dates_banner.jpg';
+  static const String cookie_banner =
+      'assets/images/products/cookie_banner.jpg';
 }

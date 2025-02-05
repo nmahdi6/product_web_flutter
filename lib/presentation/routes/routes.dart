@@ -58,7 +58,7 @@ class RouteConfiguration {
       },
     ),
     Path(
-      r'^/$', // اضافه کردن مسیر اصلی '/'
+      r'^/$',
       (context, matches) {
         AudioPlayer audioPlayer = AudioPlayer();
         MusicController musicController = MusicController(audioPlayer);

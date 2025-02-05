@@ -34,14 +34,14 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: AppColors.black,
+      backgroundColor: AppColors.appBackgroundColor,
       // appBar: AppBar(
       //   title: Text(widget.product.title),
       // ),
       body: Stack(children: [
         // background image
         Container(
-          color: AppColors.black,
+          color: AppColors.appBackgroundColor,
           width: size.width,
           height: size.height,
           child: Center(
@@ -49,8 +49,8 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
               // borderRadius:
               //     widget.borderRadius,
               child: Image.asset(
-                StringConst.badsaba_light,
-                width: size.width / 2,
+                ImagePath.badsaba_light,
+                width: size.width / 3,
                 height: size.height / 2,
                 fit: BoxFit.cover,
               ),
@@ -73,13 +73,15 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                     color: AppColors.white.withOpacity(0.9),
                     boxShadow: [
                       BoxShadow(
-                        color: AppColors.white.withOpacity(0.5),
+                        color: AppColors.grey.withOpacity(0.5),
                         spreadRadius: 5,
                         blurRadius: 7,
                         offset: Offset(0, 3), // changes position of shadow
                       ),
                     ],
-                    border: Border.all(color: AppColors.white, width: 1),
+                    border: Border.all(
+                        color: AppColors.appBackgroundColorOpposite,
+                        width: 0.3),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Column(
@@ -113,9 +115,19 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                       SpaceH12(),
-                      Text(
-                        "\$${widget.product.price}",
-                        style: Theme.of(context).textTheme.headlineSmall,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            StringConst.TOMAN,
+                            style: Theme.of(context).textTheme.headlineSmall,
+                          ),
+                          SpaceW8(),
+                          Text(
+                            widget.product.price,
+                            style: Theme.of(context).textTheme.headlineSmall,
+                          ),
+                        ],
                       ),
                       SpaceH30(),
                       Row(

@@ -6,11 +6,14 @@ import 'package:aerium/presentation/routes/routes.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:layout/layout.dart';
 import 'configure_web.dart';
+import 'package:url_strategy/url_strategy.dart';
+import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   configureDependencies();
   configureApp();
+  // setPathUrlStrategy(); // حذف # از URL‌ها
   runApp(Aerium());
 }
 
@@ -38,7 +41,7 @@ class _AeriumState extends State<Aerium> {
   Future<void> _playFirstAudio() async {
     try {
       await _audioPlayer.setAudioSource(
-        AudioSource.asset(StringConst.hans_zimmer_mountains),
+        AudioSource.asset(StringConst.first_music),
       );
       await _secondAudioPlayer.stop();
       await _audioPlayer.play();
@@ -55,7 +58,7 @@ class _AeriumState extends State<Aerium> {
   Future<void> _playSecondAudio() async {
     try {
       await _secondAudioPlayer.setAudioSource(
-        AudioSource.asset(StringConst.hans_zimmer_stay),
+        AudioSource.asset(StringConst.secound_music),
       );
       await _audioPlayer.stop();
       _secondAudioPlayer.setLoopMode(LoopMode.all);
@@ -79,7 +82,7 @@ class _AeriumState extends State<Aerium> {
         title: StringConst.APP_TITLE,
         theme: AppTheme.lightThemeData,
         debugShowCheckedModeBanner: false,
-        initialRoute: '/', // تغییر مسیر اولیه به '/'
+        initialRoute: '/',
         onGenerateRoute: RouteConfiguration.onGenerateRoute,
       ),
     );

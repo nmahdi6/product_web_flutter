@@ -829,7 +829,7 @@ class Data_2 {
       title: StringConst.RICE,
       subtitle: StringConst.ABOUT_RICE,
       imagePath: ImagePath.RICE_URL,
-      price: "هزار تومان 99",
+      price: "99,000",
     ),
   ];
 
@@ -850,11 +850,46 @@ class Data_2 {
       title: StringConst.RICE,
       subtitle: StringConst.ABOUT_RICE,
       imagePath: ImagePath.RICE_URL,
-      price: "هزار تومان 99",
+      price: "99,000",
     ),
   ];
 
   static List<ProductDealItem> trendingItems = [
+    // rotab asali
+    ProductDealItem(
+      title: StringConst.ROTAB_ASALI,
+      subtitle: StringConst.ABOUT_ROTAB_ASALI,
+      imagePath: ImagePath.rotab_asali_1,
+      price: StringConst.PRICE_ROTAB_ASALI,
+    ),
+    // rotab mazafati
+    ProductDealItem(
+      title: StringConst.ROTAB_MAZAFATI,
+      subtitle: StringConst.ABOUT_ROTAB_MAZAFATI_2,
+      imagePath: ImagePath.rotab_mazafati,
+      price: StringConst.PRICE_ROTAB_MAZAFATI_2,
+    ),
+    ProductDealItem(
+      title: StringConst.ROTAB_MAZAFATI,
+      subtitle: StringConst.ABOUT_ROTAB_MAZAFATI_3,
+      imagePath: ImagePath.rotab_mazafati,
+      price: StringConst.PRICE_ROTAB_MAZAFATI_3,
+    ),
+
+    // dates kabkab
+    ProductDealItem(
+      title: StringConst.DATES,
+      subtitle: StringConst.ABOUT_DATES_1,
+      imagePath: ImagePath.dates_kabkab,
+      price: StringConst.PRICE_DATES_2,
+    ),
+    ProductDealItem(
+      title: StringConst.DATES,
+      subtitle: StringConst.ABOUT_DATES_2,
+      imagePath: ImagePath.dates_kabkab,
+      price: StringConst.PRICE_DATES_2,
+    ),
+
     ProductDealItem(
       title: StringConst.COOKIE,
       subtitle: StringConst.ABOUT_COOKIE_12,
@@ -867,7 +902,6 @@ class Data_2 {
       imagePath: ImagePath.COOKIE_URL,
       price: StringConst.PRICE_COOKIE_36,
     ),
-
     ProductDealItem(
       title: StringConst.LILTEA,
       subtitle: StringConst.ABOUT_LILTEA,
@@ -880,31 +914,18 @@ class Data_2 {
       imagePath: ImagePath.RICE_URL,
       price: StringConst.PRICE_RICE,
     ),
-    // ProductDealItem(
-    //   title: StringConst.COOKIE,
-    //   subtitle: StringConst.ABOUT_DATE,
-    //   imagePath: ImagePath.COOKIE_URL,
-    //   price: "هزار تومان ۴۰۰",
-    // ),
     ProductDealItem(
       title: StringConst.LILTEA,
       subtitle: StringConst.ABOUT_LILTEA,
       imagePath: ImagePath.LILTEA_URL,
-      price: "هزار تومان ۱۹۹",
+      price: StringConst.PRICE_LILTEA,
     ),
     ProductDealItem(
       title: StringConst.RICE,
       subtitle: StringConst.ABOUT_RICE,
       imagePath: ImagePath.RICE_URL,
-      price: "هزار تومان ۹۹",
+      price: StringConst.PRICE_RICE,
     ),
-    // ProductDealItem(
-    //   title: StringConst.COOKIE,
-    //   subtitle: StringConst.ABOUT_COOKIE,
-    //   imagePath: ImagePath.COOKIE_URL,
-    //   price: "هزار تومان ۴۰۰",
-    // ),
-
     ProductDealItem(
       title: StringConst.LILTEA,
       subtitle: StringConst.ABOUT_LILTEA,

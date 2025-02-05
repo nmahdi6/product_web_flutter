@@ -52,7 +52,7 @@ class _AppLogoState extends State<AppLogo> with TickerProviderStateMixin {
               child: AnimatedBuilder(
                 animation: _controller,
                 child: Image(
-                  image: AssetImage(StringConst.shams_logo),
+                  image: AssetImage(ImagePath.shams_logo),
                 ),
                 builder: (context, child) {
                   return Transform(
