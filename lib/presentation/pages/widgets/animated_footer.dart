@@ -4,6 +4,7 @@ import 'package:aerium/presentation/widgets_1/animated_positioned_widget.dart';
 import 'package:aerium/presentation/widgets_1/spaces.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class AnimatedFooter extends StatefulWidget {
@@ -45,6 +46,7 @@ class _AnimatedFooterState extends State<AnimatedFooter>
   Widget build(BuildContext context) {
     double circleImageSize = responsiveSize(context, 100, 150);
     TextTheme textTheme = Theme.of(context).textTheme;
+    Size size = MediaQuery.of(context).size;
     TextStyle? style = textTheme.bodyLarge?.copyWith(
       color: AppColors.accentColor,
       fontSize: Sizes.TEXT_SIZE_14,
@@ -79,8 +81,6 @@ class _AnimatedFooterState extends State<AnimatedFooter>
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SpaceW20(),
-
             // Spacer(flex: 1),
             Container(
               height: circleImageSize,
@@ -101,7 +101,8 @@ class _AnimatedFooterState extends State<AnimatedFooter>
                       width: circleImageSize,
                       height: circleImageSize,
                       child: Image.asset(
-                        ImagePath.CIRCLE,
+                        StringConst.shams_logo,
+                        // ImagePath.CIRCLE,
                         color: AppColors.white,
                       ),
                     ),
@@ -140,7 +141,7 @@ class _AnimatedFooterState extends State<AnimatedFooter>
                 ],
               ),
             ),
-            SpaceW20(),
+
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -152,65 +153,124 @@ class _AnimatedFooterState extends State<AnimatedFooter>
                   ),
                 ),
                 SpaceH8(),
-                AnimatedPositionedText(
-                  text: StringConst.ADDRESS,
-                  textAlign: TextAlign.center,
-                  maxLines: 2,
-                  textStyle: subtitleStyle?.copyWith(fontSize: 14),
-                  factor: 1.5,
-                  controller: CurvedAnimation(
-                    parent: controller,
-                    curve: Curves.fastOutSlowIn,
-                  ),
-                ),
-                AnimatedPositionedText(
-                  text: StringConst.TELFEX_FOOTER,
-                  textAlign: TextAlign.center,
-                  textStyle: subtitleStyle,
-                  factor: 1.5,
-                  controller: CurvedAnimation(
-                    parent: controller,
-                    curve: Curves.fastOutSlowIn,
-                  ),
-                ),
-                AnimatedPositionedText(
-                  text: StringConst.PHONE_NUMBER_FOOTER,
-                  textAlign: TextAlign.center,
-                  textStyle: subtitleStyle,
-                  factor: 1.5,
-                  controller: CurvedAnimation(
-                    parent: controller,
-                    curve: Curves.fastOutSlowIn,
-                  ),
-                ),
-                AnimatedPositionedText(
-                  text: StringConst.EMAIL_FOOTER,
-                  textAlign: TextAlign.center,
-                  textStyle: subtitleStyle,
-                  factor: 1.5,
-                  controller: CurvedAnimation(
-                    parent: controller,
-                    curve: Curves.fastOutSlowIn,
-                  ),
-                ),
-                AnimatedPositionedText(
-                  text: StringConst.EMAIL_SUPPORT_FOOTER,
-                  textAlign: TextAlign.center,
-                  textStyle: subtitleStyle,
-                  factor: 1.5,
-                  controller: CurvedAnimation(
-                    parent: controller,
-                    curve: Curves.fastOutSlowIn,
-                  ),
-                ),
-                AnimatedPositionedText(
-                  text: StringConst.WEBSITE_FOOTER,
-                  textAlign: TextAlign.center,
-                  textStyle: subtitleStyle,
-                  factor: 1.2,
-                  controller: CurvedAnimation(
-                    parent: controller,
-                    curve: Curves.fastOutSlowIn,
+                Container(
+                  width: size.width,
+                  color: AppColors.appBackgroundColor,
+                  child: Center(
+                    child: Container(
+                      padding: EdgeInsets.symmetric(),
+                      width: 800,
+                      child: Column(
+                        children: [
+                          // telfex
+                          AnimatedPositionedText(
+                            text: StringConst.TELFEX_FOOTER,
+                            icon: Icon(
+                              Icons.phone,
+                              size: 16,
+                              color: AppColors.white,
+                            ),
+                            textAlign: TextAlign.start,
+                            textStyle: subtitleStyle?.copyWith(
+                                color: AppColors.appBackgroundColorOpposite),
+                            factor: 1.5,
+                            controller: CurvedAnimation(
+                              parent: controller,
+                              curve: Curves.fastOutSlowIn,
+                            ),
+                          ),
+                          // phone number
+                          AnimatedPositionedText(
+                            text: StringConst.PHONE_NUMBER_FOOTER,
+                            textAlign: TextAlign.start,
+                            textStyle: subtitleStyle?.copyWith(
+                                color: AppColors.appBackgroundColorOpposite),
+                            factor: 1.5,
+                            icon: Center(
+                              child: FaIcon(
+                                FontAwesomeIcons.whatsapp,
+                                size: 16,
+                                color: AppColors.white,
+                              ),
+                            ),
+                            controller: CurvedAnimation(
+                              parent: controller,
+                              curve: Curves.fastOutSlowIn,
+                            ),
+                          ),
+                          // email
+                          AnimatedPositionedText(
+                            text: StringConst.EMAIL_FOOTER,
+                            textAlign: TextAlign.start,
+                            textStyle: subtitleStyle?.copyWith(
+                                color: AppColors.appBackgroundColorOpposite),
+                            factor: 1.5,
+                            icon: Icon(
+                              Icons.email,
+                              size: 16,
+                              color: AppColors.white,
+                            ),
+                            controller: CurvedAnimation(
+                              parent: controller,
+                              curve: Curves.fastOutSlowIn,
+                            ),
+                          ),
+                          // email support
+                          AnimatedPositionedText(
+                            text: StringConst.EMAIL_SUPPORT_FOOTER,
+                            textAlign: TextAlign.start,
+                            textStyle: subtitleStyle?.copyWith(
+                                color: AppColors.appBackgroundColorOpposite),
+                            factor: 1.5,
+                            icon: Icon(
+                              Icons.email,
+                              size: 16,
+                              color: AppColors.white,
+                            ),
+                            controller: CurvedAnimation(
+                              parent: controller,
+                              curve: Curves.fastOutSlowIn,
+                            ),
+                          ),
+                          //website
+                          AnimatedPositionedText(
+                            text: StringConst.WEBSITE_FOOTER,
+                            textAlign: TextAlign.start,
+                            textStyle: subtitleStyle?.copyWith(
+                                color: AppColors.appBackgroundColorOpposite),
+                            factor: 1.2,
+                            icon: Icon(
+                              Icons.web,
+                              size: 16,
+                              color: AppColors.white,
+                            ),
+                            controller: CurvedAnimation(
+                              parent: controller,
+                              curve: Curves.fastOutSlowIn,
+                            ),
+                          ),
+
+                          AnimatedPositionedText(
+                            text: StringConst.ADDRESS,
+                            textAlign: TextAlign.center,
+                            maxLines: 3,
+                            icon: Icon(
+                              Icons.location_on,
+                              size: 16,
+                              color: AppColors.white,
+                            ),
+                            textStyle: subtitleStyle?.copyWith(
+                                color: AppColors.appBackgroundColorOpposite,
+                                fontSize: 15),
+                            factor: 2,
+                            controller: CurvedAnimation(
+                              parent: controller,
+                              curve: Curves.fastOutSlowIn,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
               ],

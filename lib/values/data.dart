@@ -857,10 +857,35 @@ class Data_2 {
   static List<ProductDealItem> trendingItems = [
     ProductDealItem(
       title: StringConst.COOKIE,
-      subtitle: StringConst.ABOUT_COOKIE,
+      subtitle: StringConst.ABOUT_COOKIE_12,
       imagePath: ImagePath.COOKIE_URL,
-      price: "هزار تومان ۴۰۰",
+      price: StringConst.PRICE_COOKIE_12,
     ),
+    ProductDealItem(
+      title: StringConst.COOKIE,
+      subtitle: StringConst.ABOUT_COOKIE_36,
+      imagePath: ImagePath.COOKIE_URL,
+      price: StringConst.PRICE_COOKIE_36,
+    ),
+
+    ProductDealItem(
+      title: StringConst.LILTEA,
+      subtitle: StringConst.ABOUT_LILTEA,
+      imagePath: ImagePath.LILTEA_URL,
+      price: StringConst.PRICE_LILTEA,
+    ),
+    ProductDealItem(
+      title: StringConst.RICE,
+      subtitle: StringConst.ABOUT_RICE,
+      imagePath: ImagePath.RICE_URL,
+      price: StringConst.PRICE_RICE,
+    ),
+    // ProductDealItem(
+    //   title: StringConst.COOKIE,
+    //   subtitle: StringConst.ABOUT_DATE,
+    //   imagePath: ImagePath.COOKIE_URL,
+    //   price: "هزار تومان ۴۰۰",
+    // ),
     ProductDealItem(
       title: StringConst.LILTEA,
       subtitle: StringConst.ABOUT_LILTEA,
@@ -873,30 +898,13 @@ class Data_2 {
       imagePath: ImagePath.RICE_URL,
       price: "هزار تومان ۹۹",
     ),
-    ProductDealItem(
-      title: StringConst.COOKIE,
-      subtitle: StringConst.ABOUT_COOKIE,
-      imagePath: ImagePath.COOKIE_URL,
-      price: "هزار تومان ۴۰۰",
-    ),
-    ProductDealItem(
-      title: StringConst.LILTEA,
-      subtitle: StringConst.ABOUT_LILTEA,
-      imagePath: ImagePath.LILTEA_URL,
-      price: "هزار تومان ۱۹۹",
-    ),
-    ProductDealItem(
-      title: StringConst.RICE,
-      subtitle: StringConst.ABOUT_RICE,
-      imagePath: ImagePath.RICE_URL,
-      price: "هزار تومان ۹۹",
-    ),
-    ProductDealItem(
-      title: StringConst.COOKIE,
-      subtitle: StringConst.ABOUT_COOKIE,
-      imagePath: ImagePath.COOKIE_URL,
-      price: "هزار تومان ۴۰۰",
-    ),
+    // ProductDealItem(
+    //   title: StringConst.COOKIE,
+    //   subtitle: StringConst.ABOUT_COOKIE,
+    //   imagePath: ImagePath.COOKIE_URL,
+    //   price: "هزار تومان ۴۰۰",
+    // ),
+
     ProductDealItem(
       title: StringConst.LILTEA,
       subtitle: StringConst.ABOUT_LILTEA,
@@ -925,22 +933,23 @@ class Data_2 {
       imagePath: ImagePath.LILTEA_URL,
       price: "هزار تومان ۱۹۹",
     ),
-    ProductDealItem(
-      title: StringConst.COOKIE,
-      subtitle: StringConst.ABOUT_COOKIE,
-      imagePath: ImagePath.COOKIE_URL,
-      price: "هزار تومان ۴۰۰",
-    ),
+    // ProductDealItem(
+    //   title: StringConst.COOKIE,
+    //   subtitle: StringConst.ABOUT_COOKIE,
+    //   imagePath: ImagePath.COOKIE_URL,
+    //   price: "هزار تومان ۴۰۰",
+    // ),
   ];
 
   // new Product Items
   static List<ProductDealItem> newProductItems = [
-    ProductDealItem(
-      title: StringConst.COOKIE,
-      subtitle: StringConst.ABOUT_COOKIE,
-      imagePath: ImagePath.COOKIE_URL,
-      price: "هزار تومان ۴۰۰",
-    ),
+    // ProductDealItem(
+    //   title: StringConst.COOKIE,
+    //   subtitle: StringConst.ABOUT_COOKIE,
+    //   imagePath: ImagePath.COOKIE_URL,
+    //   price: "هزار تومان ۴۰۰",
+    // ),
+
     ProductDealItem(
       title: StringConst.LILTEA,
       subtitle: StringConst.ABOUT_LILTEA,

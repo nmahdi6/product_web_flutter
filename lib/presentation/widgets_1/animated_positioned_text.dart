@@ -1,3 +1,5 @@
+import 'package:aerium/presentation/widgets_1/spaces.dart';
+import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedPositionedText extends StatefulWidget {
@@ -5,6 +7,7 @@ class AnimatedPositionedText extends StatefulWidget {
     Key? key,
     required this.controller,
     required this.text,
+    this.icon,
     required this.textStyle,
     this.factor = 1,
     this.maxLines = 1,
@@ -16,6 +19,7 @@ class AnimatedPositionedText extends StatefulWidget {
 
   final CurvedAnimation controller;
   final String text;
+  final Widget? icon;
   final double factor;
   final TextStyle? textStyle;
   final TextAlign? textAlign;
@@ -69,11 +73,29 @@ class _AnimatedPositionedTextState extends State<AnimatedPositionedText> {
         children: [
           PositionedTransition(
             rect: textPositionAnimation,
-            child: Text(
-              widget.text,
-              textAlign: widget.textAlign,
-              style: widget.textStyle,
-            ),
+            child: widget.icon == null
+                ? Text(
+                    widget.text,
+                    textAlign: widget.textAlign,
+                    style: widget.textStyle,
+                  )
+                : Row(
+                    children: [
+                      Container(
+                          width: 30,
+                          height: 30,
+                          decoration: BoxDecoration(
+                              color: AppColors.black,
+                              borderRadius: BorderRadius.circular(100)),
+                          child: widget.icon!),
+                      SpaceW12(),
+                      Text(
+                        widget.text,
+                        textAlign: widget.textAlign,
+                        style: widget.textStyle,
+                      ),
+                    ],
+                  ),
           ),
         ],
       ),

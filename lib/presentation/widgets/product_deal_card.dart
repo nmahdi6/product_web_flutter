@@ -27,20 +27,6 @@ class ProductDealItem {
   }
 }
 
-// class ProductDealItem {
-//   ProductDealItem({
-//     required this.title,
-//     required this.subtitle,
-//     required this.price,
-//     required this.imagePath,
-//   });
-
-//   final String title;
-//   final String subtitle;
-//   final String price;
-//   final String imagePath;
-// }
-
 class ProductDealCard extends StatefulWidget {
   ProductDealCard({
     required this.title,
@@ -131,12 +117,6 @@ class _ProductDealCardState extends State<ProductDealCard> {
                         fit: BoxFit.cover,
                       ),
                     ),
-                    // Image.asset(
-                    //   imagePath,
-                    //   width: width,
-                    //   height: height,
-                    //   fit: BoxFit.cover,
-                    // ),
                     SpaceH12(),
                     Center(
                       child: Text(
@@ -156,53 +136,6 @@ class _ProductDealCardState extends State<ProductDealCard> {
                         ),
                       ),
                     ),
-                    // Column(
-                    //   crossAxisAlignment: CrossAxisAlignment.start,
-                    //   children: [
-                    //     // RichText(
-                    //     //   text: TextSpan(
-                    //     //     text: price.toString(),
-                    //     //     style: theme.textTheme.headlineSmall?.copyWith(
-                    //     //       color: AppColors.secondaryColor2,
-                    //     //       // color: AppColors.accentPurpleColor,
-                    //     //       fontSize: Sizes.TEXT_SIZE_18,
-                    //     //     ),
-                    //     //     // children:
-                    //     //     //     _buildPrice(context: context, price: price.toString()),
-                    //     //   ),
-                    //     // ),
-
-                    //     SpaceH8(),
-                    //     Row(
-                    //       children: [
-                    //         // Text(
-                    //         //   StringConst.REMAINING,
-                    //         //   style: theme.textTheme.headlineSmall?.copyWith(
-                    //         //     color: AppColors.secondaryColor2,
-                    //         //     fontSize: Sizes.TEXT_SIZE_18,
-                    //         //   ),
-                    //         // ),
-                    //         Text(
-                    //           widget.subtitle,
-                    //           style: theme.textTheme.headlineSmall?.copyWith(
-                    //             color: AppColors.accentDarkGreenColor,
-                    //             fontSize: Sizes.TEXT_SIZE_16,
-                    //           ),
-                    //         ),
-                    //         // Text(
-                    //         //   widget.subtitle,
-                    //         //   style: theme.textTheme.headlineSmall?.copyWith(
-                    //         //     color:
-                    //         //         StringConst.NOT_AVAILABLE == widget.subtitle
-                    //         //             ? AppColors.errorRed
-                    //         //             : AppColors.accentDarkGreenColor,
-                    //         //     fontSize: Sizes.TEXT_SIZE_18,
-                    //         //   ),
-                    //         // ),
-                    //       ],
-                    //     ),
-                    //   ],
-                    // ),
                     SpaceH40(),
                     Center(
                       child: Container(
@@ -238,35 +171,35 @@ class _ProductDealCardState extends State<ProductDealCard> {
     );
   }
 
-  List<TextSpan> _buildPrice({
-    required BuildContext context,
-    required String price,
-  }) {
-    List<TextSpan> texts = [];
-    // List<Color> colors = [
-    //   AppColors.accentYellowColor,
-    //   AppColors.accentPinkColor,
-    //   AppColors.accentDarkGreenColor,
-    //   AppColors.accentOrangeColor,
-    // ];
+  // List<TextSpan> _buildPrice({
+  //   required BuildContext context,
+  //   required String price,
+  // }) {
+  //   List<TextSpan> texts = [];
+  //   // List<Color> colors = [
+  //   //   AppColors.accentYellowColor,
+  //   //   AppColors.accentPinkColor,
+  //   //   AppColors.accentDarkGreenColor,
+  //   //   AppColors.accentOrangeColor,
+  //   // ];
 
-    int colorCounter = 0;
-    for (int index = 1; index < price.length; index++) {
-      texts.add(
-        createText(
-          context: context,
-          text: price[index],
-          textColor: AppColors.secondaryColor2,
-        ),
-        // textColor: colors[colorCounter]),
-      );
-      // colorCounter++;
-      // if (colorCounter == colors.length) {
-      //   colorCounter = 0;
-      // }
-    }
-    return texts;
-  }
+  //   int colorCounter = 0;
+  //   for (int index = 1; index < price.length; index++) {
+  //     texts.add(
+  //       createText(
+  //         context: context,
+  //         text: price[index],
+  //         textColor: AppColors.secondaryColor2,
+  //       ),
+  //       // textColor: colors[colorCounter]),
+  //     );
+  //     // colorCounter++;
+  //     // if (colorCounter == colors.length) {
+  //     //   colorCounter = 0;
+  //     // }
+  //   }
+  //   return texts;
+  // }
 
   TextSpan createText({
     required BuildContext context,
