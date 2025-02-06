@@ -40,15 +40,24 @@ class _AppLogoState extends State<AppLogo> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
+
+    // تشخیص موبایل بودن
+    double screenWidth = MediaQuery.of(context).size.width;
+    bool isMobile = screenWidth < 600;
+
+    // تنظیم سایزها برای موبایل
+    double logoSize = isMobile ? 40 : 70;
+    double fontSize = isMobile ? 14 : widget.fontSize ?? 18;
+
     return Container(
-      height: 50,
+      height: logoSize,
       child: Row(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.symmetric(horizontal: isMobile ? 10 : 20),
             child: Container(
-              width: 70,
-              height: 70,
+              width: logoSize,
+              height: logoSize,
               child: AnimatedBuilder(
                 animation: _controller,
                 child: Image(
@@ -67,14 +76,15 @@ class _AppLogoState extends State<AppLogo> with TickerProviderStateMixin {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 0),
+            padding: EdgeInsets.symmetric(horizontal: isMobile ? 0 : 10),
             child: Text(
               widget.title,
               style: widget.titleStyle ??
                   textTheme.displayMedium?.copyWith(
-                      color: AppColors.white,
-                      fontSize: widget.fontSize,
-                      fontWeight: FontWeight.w900),
+                    color: AppColors.white,
+                    fontSize: fontSize,
+                    fontWeight: FontWeight.w900,
+                  ),
             ),
           ),
         ],

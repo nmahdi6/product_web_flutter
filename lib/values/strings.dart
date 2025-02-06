@@ -58,13 +58,14 @@ class StringConst {
   static const String AIR_BLUE = "Air-Blue";
   static const String NIKE_BLUE = "Nike Air-Blue";
 
-  //ROTAB
+  //DATES
   static const String DATES = "خرما کبکاب خشت";
   static const String ABOUT_DATES_1 = "خرمای  کبکاب خشت ۱ کیلوگرمی";
   static const String PRICE_DATES_1 = "100,000";
   static const String ABOUT_DATES_2 = "خرمای  کبکاب خشت ۲ کیلوگرمی";
   static const String PRICE_DATES_2 = "190,000";
 
+  //ROTAB
   static const String ROTAB_ASALI = "رطب عسلی";
   static const String ABOUT_ROTAB_ASALI =
       "رطب عسلی ۲ ردیف ۶۵۰ گرمی" "رطب عسلی ۲ ردیف ۶۵۰ گرمی";

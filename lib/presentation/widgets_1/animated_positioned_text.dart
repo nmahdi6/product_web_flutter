@@ -15,6 +15,9 @@ class AnimatedPositionedText extends StatefulWidget {
     this.textAlign,
     this.relativeRect,
     this.slideAnimationcurve = Curves.fastOutSlowIn,
+    this.iconSize = 16, // مقدار پیش‌فرض برای سایز آیکون
+    this.spaceBetweenIconAndText =
+        8, // مقدار پیش‌فرض برای فاصله بین آیکون و متن
   }) : super(key: key);
 
   final CurvedAnimation controller;
@@ -27,6 +30,8 @@ class AnimatedPositionedText extends StatefulWidget {
   final Curve slideAnimationcurve;
   final double width;
   final int maxLines;
+  final double iconSize; // سایز آیکون (اختیاری)
+  final double spaceBetweenIconAndText; // فاصله بین آیکون و متن (اختیاری)
 
   @override
   _AnimatedPositionedTextState createState() => _AnimatedPositionedTextState();
@@ -78,21 +83,38 @@ class _AnimatedPositionedTextState extends State<AnimatedPositionedText> {
                     widget.text,
                     textAlign: widget.textAlign,
                     style: widget.textStyle,
+                    maxLines: widget.maxLines,
+                    overflow: TextOverflow.ellipsis,
                   )
                 : Row(
                     children: [
                       Container(
-                          width: 30,
-                          height: 30,
-                          decoration: BoxDecoration(
-                              color: AppColors.black,
-                              borderRadius: BorderRadius.circular(100)),
-                          child: widget.icon!),
-                      SpaceW12(),
-                      Text(
-                        widget.text,
-                        textAlign: widget.textAlign,
-                        style: widget.textStyle,
+                        width: widget.iconSize +
+                            10, // اضافه کردن کمی فضا برای آیکون
+                        height: widget.iconSize + 10,
+                        decoration: BoxDecoration(
+                          color: AppColors.black,
+                          borderRadius: BorderRadius.circular(100),
+                        ),
+                        child: Center(
+                          child: SizedBox(
+                            width: widget.iconSize,
+                            height: widget.iconSize,
+                            child: widget.icon!,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                          width: widget
+                              .spaceBetweenIconAndText), // فاصله بین آیکون و متن
+                      Expanded(
+                        child: Text(
+                          widget.text,
+                          textAlign: widget.textAlign,
+                          style: widget.textStyle,
+                          maxLines: widget.maxLines,
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
                     ],
                   ),

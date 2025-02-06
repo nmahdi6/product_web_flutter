@@ -107,37 +107,38 @@ class _ContactPageState extends State<ContactPage>
     );
     double contentAreaWidth = responsiveSize(
       context,
-      assignWidth(context, 0.8),
+      assignWidth(context, 0.8), // عرض بیشتر برای موبایل
       assignWidth(context, 0.6),
-    ); //takes 60% of screen
+    );
 
     double buttonWidth = responsiveSize(
       context,
-      contentAreaWidth * 0.6,
+      contentAreaWidth * 0.8, // عرض بیشتر برای موبایل
       contentAreaWidth * 0.25,
     );
     EdgeInsetsGeometry padding = EdgeInsets.only(
       left: responsiveSize(
         context,
-        assignWidth(context, 0.10),
+        assignWidth(context, 0.05), // پدینگ کمتر برای موبایل
         assignWidth(context, 0.15),
       ),
       right: responsiveSize(
         context,
-        assignWidth(context, 0.10),
+        assignWidth(context, 0.05), // پدینگ کمتر برای موبایل
         assignWidth(context, 0.15),
       ),
       top: responsiveSize(
         context,
-        assignHeight(context, 0.25),
+        assignHeight(context, 0.1), // پدینگ کمتر برای موبایل
         assignHeight(context, 0.3),
       ),
     );
     TextStyle? headingStyle = textTheme.displayMedium?.copyWith(
       color: AppColors.black,
-      fontSize: responsiveSize(context, 40, 60),
+      fontSize: responsiveSize(context, 30, 60), // فونت کوچک‌تر برای موبایل
     );
     Size size = MediaQuery.of(context).size;
+    bool isMobile = size.width < 600; // تشخیص دستگاه موبایل
 
     return BlocConsumer<EmailBloc, EmailState>(
         bloc: emailBloc,
@@ -199,12 +200,14 @@ class _ContactPageState extends State<ContactPage>
                   height: size.height,
                   child: Center(
                     child: ClipRRect(
-                      // borderRadius:
-                      //     widget.borderRadius,
                       child: Image.asset(
                         ImagePath.badsaba_light,
-                        width: size.width / 3,
-                        height: size.height / 2,
+                        width: isMobile
+                            ? size.width / 2
+                            : size.width / 3, // تصویر کوچک‌تر برای موبایل
+                        height: isMobile
+                            ? size.height / 3
+                            : size.height / 2, // تصویر کوچک‌تر برای موبایل
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -224,22 +227,20 @@ class _ContactPageState extends State<ContactPage>
                         padding: padding,
                         child: Container(
                           padding: EdgeInsets.symmetric(
-                              vertical: 20,
-                              // horizontal: assignWidth(context, 0.10),
-                              horizontal: 50),
+                            vertical: 20,
+                            horizontal:
+                                isMobile ? 20 : 50, // پدینگ کمتر برای موبایل
+                          ),
                           decoration: BoxDecoration(
-                            // ignore: deprecated_member_use
                             color:
                                 AppColors.appBackgroundColor.withOpacity(0.9),
                             boxShadow: [
                               BoxShadow(
-                                // ignore: deprecated_member_use
                                 color: AppColors.appBackgroundColor
                                     .withOpacity(0.5),
                                 spreadRadius: 5,
                                 blurRadius: 7,
-                                offset:
-                                    Offset(0, 3), // changes position of shadow
+                                offset: Offset(0, 3),
                               ),
                             ],
                             border: Border.all(
@@ -274,7 +275,8 @@ class _ContactPageState extends State<ContactPage>
                                     height: 2.0,
                                     fontSize: responsiveSize(
                                       context,
-                                      Sizes.TEXT_SIZE_16,
+                                      Sizes
+                                          .TEXT_SIZE_14, // فونت کوچک‌تر برای موبایل
                                       Sizes.TEXT_SIZE_18,
                                     ),
                                   ),
@@ -346,7 +348,7 @@ class _ContactPageState extends State<ContactPage>
                                         alignment: Alignment.topRight,
                                         child: AeriumButton(
                                           buttonStyle: ButtonStyle(
-                                            shape: WidgetStateProperty.all<
+                                            shape: MaterialStateProperty.all<
                                                     RoundedRectangleBorder>(
                                                 RoundedRectangleBorder(
                                               borderRadius:
@@ -354,13 +356,13 @@ class _ContactPageState extends State<ContactPage>
                                                       Sizes.RADIUS_8),
                                             )),
                                             backgroundColor:
-                                                WidgetStateProperty.all(
+                                                MaterialStateProperty.all(
                                                     AppColors.background),
                                             surfaceTintColor:
-                                                WidgetStateProperty.all(
+                                                MaterialStateProperty.all(
                                                     AppColors.background),
                                             overlayColor:
-                                                WidgetStateProperty.all(
+                                                MaterialStateProperty.all(
                                                     AppColors.white),
                                           ),
                                           height: Sizes.HEIGHT_56,
@@ -380,7 +382,9 @@ class _ContactPageState extends State<ContactPage>
                           ),
                         ),
                       ),
-                      CustomSpacer(heightFactor: 0.15),
+                      CustomSpacer(
+                          heightFactor:
+                              isMobile ? 0.1 : 0.15), // فاصله کمتر برای موبایل
                       SimpleFooter(),
                     ],
                   ),

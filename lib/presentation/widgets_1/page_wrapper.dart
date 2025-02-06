@@ -107,6 +107,7 @@ class _PageWrapperState extends State<PageWrapper>
       key: _scaffoldKey,
       backgroundColor: widget.backgroundColor,
       drawer: AppDrawer(
+        // color: AppColors.white,
         color: AppColors.background,
         controller: widget.navBarAnimationController,
         menuList: Data.menuItems,
