@@ -222,7 +222,7 @@ class _AppDrawerState extends State<AppDrawer>
             isSelected: widget.selectedItemRouteName == menuList[index].route
                 ? true
                 : false,
-            selectedColor: AppColors.background, // رنگ برای آیتم انتخاب‌شده
+            selectedColor: AppColors.black, // رنگ برای آیتم انتخاب‌شده
             unselectedColor: AppColors.white, // رنگ برای آیتم غیر انتخاب‌شده
             selectedTextStyle: TextStyle(
               fontSize: 26,

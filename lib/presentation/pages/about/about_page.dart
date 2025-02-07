@@ -89,7 +89,7 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
       ),
       top: responsiveSize(
         context,
-        assignHeight(context, 0.1), // پدینگ کمتر برای موبایل
+        assignHeight(context, 0.18), // پدینگ کمتر برای موبایل
         assignHeight(context, 0.15),
       ),
     );

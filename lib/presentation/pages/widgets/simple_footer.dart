@@ -172,25 +172,29 @@ class BuiltWithFlutter extends StatelessWidget {
       color: AppColors.accentColor,
       fontSize: Sizes.TEXT_SIZE_14,
     );
-    return Wrap(
-      alignment: WrapAlignment.center,
-      crossAxisAlignment: WrapCrossAlignment.center,
-      children: [
-        Text(
-          StringConst.BUILT_WITH_FLUTTER,
-          style: style,
-        ),
-        FlutterLogo(size: 14),
-        Text(
-          " with ",
-          style: style,
-        ),
-        Icon(
-          FontAwesomeIcons.solidHeart,
-          size: 14,
-          color: AppColors.errorRed,
-        )
-      ],
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      decoration: BoxDecoration(color: AppColors.background),
+      child: Wrap(
+        alignment: WrapAlignment.center,
+        crossAxisAlignment: WrapCrossAlignment.center,
+        children: [
+          Text(
+            StringConst.BUILT_WITH_FLUTTER,
+            style: style,
+          ),
+          FlutterLogo(size: 14),
+          Text(
+            " with ",
+            style: style,
+          ),
+          Icon(
+            FontAwesomeIcons.solidHeart,
+            size: 14,
+            color: AppColors.errorRed,
+          )
+        ],
+      ),
     );
   }
 }

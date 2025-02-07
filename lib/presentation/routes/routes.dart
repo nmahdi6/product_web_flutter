@@ -65,6 +65,22 @@ class RouteConfiguration {
         return HomePage(musicController: musicController);
       },
     ),
+    Path(
+      r'^' + HomePage.homePageRoute,
+      (context, matches) {
+        AudioPlayer audioPlayer = AudioPlayer();
+        MusicController musicController = MusicController(audioPlayer);
+        return HomePage(musicController: musicController);
+      },
+    ),
+    Path(
+      r'^/$',
+      (context, matches) {
+        AudioPlayer audioPlayer = AudioPlayer();
+        MusicController musicController = MusicController(audioPlayer);
+        return HomePage(musicController: musicController);
+      },
+    ),
   ];
 
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {

@@ -99,6 +99,11 @@ class _AnimatedFooterState extends State<AnimatedFooter>
                       md: assignWidth(context, isMobile ? 0.04 : 0.20),
                       sm: assignWidth(context, isMobile ? 0.01 : 0.1),
                     ),
+                    top: responsiveSize(
+                      context,
+                      assignHeight(context, isMobile ? 0.05 : 0.01),
+                      assignHeight(context, isMobile ? 0.05 : 0.01),
+                    ),
                     child: AnimatedPositionedWidget(
                       controller: CurvedAnimation(
                         parent: controller,

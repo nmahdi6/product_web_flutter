@@ -5,9 +5,8 @@ import 'package:aerium/app_theme.dart';
 import 'package:aerium/presentation/routes/routes.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:layout/layout.dart';
-import 'configure_web.dart';
 import 'package:url_strategy/url_strategy.dart';
-import 'package:flutter_web_plugins/flutter_web_plugins.dart';
+import 'configure_web.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

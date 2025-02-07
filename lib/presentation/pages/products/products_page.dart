@@ -138,7 +138,7 @@ class _ProductsPageState extends State<ProductsPage>
                           : product;
 
                       return Container(
-                        height: isMobile ? 300 : 400, // ارتفاع کمتر برای موبایل
+                        height: 400, // ارتفاع کمتر برای موبایل
                         width: isMobile
                             ? size.width * 0.4
                             : 220, // عرض کمتر برای موبایل
