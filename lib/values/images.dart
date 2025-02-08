@@ -264,7 +264,8 @@ class ImagePath {
   //
 
   // images url
-  static const String shams_logo = 'assets/images/products/shams_logo.png';
+  // static const String shams_logo = 'assets/images/products/shams_logo.jpg';
+  static const String shams_logo = 'assets/images/shams_logo.png';
   static const String badsaba_light =
       'assets/images/products/badsaba_light.jpeg';
 

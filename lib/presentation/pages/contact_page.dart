@@ -1,6 +1,7 @@
 import 'package:aerium/core/utils/extensions.dart';
 import 'package:aerium/core/layout/adaptive.dart';
 import 'package:aerium/infrastructure/bloc/email_bloc.dart';
+import 'package:aerium/main.dart';
 import 'package:aerium/presentation/pages/widgets/simple_footer.dart';
 import 'package:aerium/presentation/widgets_1/aerium_button.dart';
 import 'package:aerium/presentation/widgets_1/animated_positioned_text.dart';
@@ -13,12 +14,16 @@ import 'package:aerium/presentation/widgets_1/spaces.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../injection_container.dart';
 
 class ContactPage extends StatefulWidget {
   static const String contactPageRoute = StringConst.CONTACT_PAGE;
-  const ContactPage({Key? key}) : super(key: key);
+  final MusicController musicController;
+
+  const ContactPage({Key? key, required this.musicController})
+      : super(key: key);
 
   @override
   _ContactPageState createState() => _ContactPageState();
@@ -59,6 +64,12 @@ class _ContactPageState extends State<ContactPage>
     );
     emailBloc = getIt<EmailBloc>();
     super.initState();
+    _saveLastVisitedPage();
+  }
+
+  _saveLastVisitedPage() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('lastVisitedPage', StringConst.CONTACT_PAGE);
   }
 
   @override
@@ -129,7 +140,7 @@ class _ContactPageState extends State<ContactPage>
       ),
       top: responsiveSize(
         context,
-        assignHeight(context, 0.1), // پدینگ کمتر برای موبایل
+        assignHeight(context, 0.18), // پدینگ کمتر برای موبایل
         assignHeight(context, 0.3),
       ),
     );
@@ -185,6 +196,7 @@ class _ContactPageState extends State<ContactPage>
         },
         builder: (context, state) {
           return PageWrapper(
+            musicController: widget.musicController,
             selectedRoute: ContactPage.contactPageRoute,
             selectedPageName: '',
             navBarAnimationController: _controller,

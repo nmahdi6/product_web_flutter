@@ -228,7 +228,7 @@ class _AppDrawerState extends State<AppDrawer>
               fontSize: 26,
               fontFamily: StringConst.FONT_FAMILY,
               fontWeight: FontWeight.bold,
-              color: AppColors.background,
+              color: AppColors.black,
             ), // استایل متن برای آیتم انتخاب‌شده
             unselectedTextStyle: TextStyle(
               fontSize: 18,

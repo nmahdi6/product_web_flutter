@@ -1,4 +1,5 @@
 import 'package:aerium/core/layout/adaptive.dart';
+import 'package:aerium/main.dart';
 import 'package:aerium/presentation/pages/home/home_page.dart';
 import 'package:aerium/presentation/pages/widgets/nav_bar.dart';
 import 'package:aerium/presentation/widgets_1/app_drawer.dart';
@@ -25,6 +26,7 @@ class PageWrapper extends StatefulWidget {
       required this.selectedPageName,
       required this.navBarAnimationController,
       required this.child,
+      required this.musicController, // اضافه کردن MusicController
       this.customLoadingAnimation = const Empty(),
       this.onLoadingAnimationDone,
       this.hasSideTitle = true,
@@ -39,6 +41,7 @@ class PageWrapper extends StatefulWidget {
   final String selectedRoute;
   final String selectedPageName;
   final AnimationController navBarAnimationController;
+  final MusicController musicController; // MusicController
   final VoidCallback? onLoadingAnimationDone;
   final Widget child;
   final Widget customLoadingAnimation;
@@ -95,8 +98,6 @@ class _PageWrapperState extends State<PageWrapper>
 
   @override
   Widget build(BuildContext context) {
-    // simple hack to reverse animation when navigation is popped
-    // I don't know if there's a better way to do this, but for now it works
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (forwardSlideController.isCompleted && widget.reverseAnimationOnPop) {
         forwardSlideController.reverse();
@@ -107,7 +108,6 @@ class _PageWrapperState extends State<PageWrapper>
       key: _scaffoldKey,
       backgroundColor: widget.backgroundColor,
       drawer: AppDrawer(
-        // color: AppColors.white,
         color: AppColors.background,
         controller: widget.navBarAnimationController,
         menuList: Data.menuItems,
@@ -120,6 +120,7 @@ class _PageWrapperState extends State<PageWrapper>
             selectedRouteTitle: widget.selectedPageName,
             controller: widget.navBarAnimationController,
             selectedRouteName: widget.selectedRoute,
+            musicController: widget.musicController, // انتقال MusicController
             hasSideTitle: widget.hasSideTitle,
             appLogoColor: widget.appLogoColor,
             titleColor: widget.navBarTitleColor,

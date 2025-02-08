@@ -59,10 +59,10 @@ class _AnimatedFooterState extends State<AnimatedFooter>
       color: AppColors.accentColor,
       fontSize: responsiveSize(
         context,
-        Sizes.TEXT_SIZE_18,
-        Sizes.TEXT_SIZE_28,
-        md: Sizes.TEXT_SIZE_24,
-        sm: Sizes.TEXT_SIZE_16,
+        Sizes.TEXT_SIZE_16,
+        Sizes.TEXT_SIZE_24,
+        md: Sizes.TEXT_SIZE_20,
+        sm: Sizes.TEXT_SIZE_14,
       ),
     );
 
@@ -94,15 +94,15 @@ class _AnimatedFooterState extends State<AnimatedFooter>
                   Positioned(
                     right: responsiveSize(
                       context,
-                      assignWidth(context, isMobile ? 0.04 : 0.16),
-                      assignWidth(context, isMobile ? 0.06 : 0.26),
-                      md: assignWidth(context, isMobile ? 0.04 : 0.20),
-                      sm: assignWidth(context, isMobile ? 0.01 : 0.1),
+                      assignWidth(context, isMobile ? 0.03 : 0.16),
+                      assignWidth(context, isMobile ? 0.05 : 0.26),
+                      md: assignWidth(context, isMobile ? 0.03 : 0.20),
+                      sm: assignWidth(context, isMobile ? 0.009 : 0.1),
                     ),
                     top: responsiveSize(
                       context,
-                      assignHeight(context, isMobile ? 0.05 : 0.01),
-                      assignHeight(context, isMobile ? 0.05 : 0.01),
+                      assignHeight(context, isMobile ? 0.015 : 0.01),
+                      assignHeight(context, isMobile ? 0.015 : 0.01),
                     ),
                     child: AnimatedPositionedWidget(
                       controller: CurvedAnimation(
@@ -142,6 +142,7 @@ class _AnimatedFooterState extends State<AnimatedFooter>
                             curve: Curves.fastOutSlowIn,
                           ),
                         ),
+                        SpaceH80(),
                       ],
                     ),
                   ),
@@ -151,7 +152,6 @@ class _AnimatedFooterState extends State<AnimatedFooter>
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SpaceH20(),
                 Text(
                   'تماس با ما:',
                   style: subtitleStyle?.copyWith(

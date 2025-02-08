@@ -3,7 +3,6 @@ import 'package:aerium/main.dart';
 import 'package:aerium/presentation/pages/products/product_detail_page.dart'
     hide ProductDealItem;
 import 'package:aerium/presentation/pages/home/widgets/home_page_header.dart';
-import 'package:aerium/presentation/pages/home/widgets/loading_page.dart';
 import 'package:aerium/presentation/pages/widgets/animated_footer.dart';
 import 'package:aerium/presentation/pages/widgets/simple_footer.dart';
 import 'package:aerium/presentation/widgets/product_deal_card.dart';
@@ -15,6 +14,7 @@ import 'package:aerium/presentation/widgets_1/spaces.dart';
 import 'package:another_carousel_pro/another_carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'package:aerium/values/values.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatefulWidget {
   static const String homePageRoute = StringConst.HOME_PAGE;
@@ -47,6 +47,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     );
 
     super.initState();
+    _saveLastVisitedPage();
+  }
+
+  _saveLastVisitedPage() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('lastVisitedPage', StringConst.HOME_PAGE);
   }
 
   void getArguments() {
@@ -75,7 +81,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     double screenWidth = MediaQuery.of(context).size.width;
     bool isMobile = screenWidth < 600; // تشخیص دستگاه موبایل
 
-    double headerFontSize = isMobile ? 16 : 24; // تنظیم فونت‌ها برای موبایل
+    // double headerFontSize = isMobile ? 16 : 24; // تنظیم فونت‌ها برای موبایل
     double carouselHeight =
         isMobile ? 300 : 450; // تنظیم ارتفاع کاروسل برای موبایل
     double productCardWidth =
@@ -130,14 +136,15 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       onLoadingAnimationDone: () {
         _slideTextController.forward();
       },
-      customLoadingAnimation: LoadingHomePageAnimation(
-        text: StringConst.COMPANY_NAME_FA,
-        text_2: StringConst.COMPANY_NAME_EN,
-        style: textTheme.headlineMedium!.copyWith(color: AppColors.white),
-        onLoadingDone: () {
-          _slideTextController.forward();
-        },
-      ),
+      // customLoadingAnimation: LoadingHomePageAnimation(
+      //   text: StringConst.COMPANY_NAME_FA,
+      //   text_2: StringConst.COMPANY_NAME_EN,
+      //   style: textTheme.headlineMedium!.copyWith(color: AppColors.white),
+      //   onLoadingDone: () {
+      //     _slideTextController.forward();
+      //   },
+      // ),
+      musicController: widget.musicController,
       child: Directionality(
         textDirection: TextDirection.rtl,
         child: Scaffold(
@@ -175,7 +182,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontFamily: StringConst.FONT_FAMILY,
-                                    fontSize: isMobile ? 14 : 16,
+                                    fontSize: isMobile ? 14 : 18,
                                     fontWeight: FontWeight.w900,
                                     color: AppColors.white,
                                     shadows: [
@@ -201,7 +208,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontFamily: StringConst.FONT_FAMILY,
-                                    fontSize: isMobile ? 20 : 28,
+                                    fontSize: isMobile ? 22 : 30,
                                     fontWeight: FontWeight.w900,
                                     color: const Color.fromARGB(
                                         255, 255, 254, 208),
@@ -275,7 +282,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       ),
                     ),
                     SizedBox(
-                      height: assignHeight(context, isMobile ? 0.01 : 0.02),
+                      height: assignHeight(context, isMobile ? 0.006 : 0.02),
                     ),
                   ],
                 ),
@@ -426,6 +433,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         child: Hero(
                           tag: product.imagePath,
                           child: ProductDealCard(
+                            width: isMobile ? Sizes.WIDTH_160 : Sizes.WIDTH_180,
+                            height:
+                                isMobile ? Sizes.WIDTH_160 : Sizes.WIDTH_180,
                             title: product.title,
                             subtitle: product.subtitle,
                             price: product.price,

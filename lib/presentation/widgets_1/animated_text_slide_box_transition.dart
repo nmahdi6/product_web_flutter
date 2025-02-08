@@ -1,8 +1,5 @@
-import 'dart:ui';
-
 import 'package:aerium/core/utils/functions.dart';
 import 'package:aerium/presentation/widgets_1/animated_slide_box.dart';
-import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedTextSlideBoxTransition extends StatefulWidget {

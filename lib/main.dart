@@ -22,45 +22,21 @@ class Aerium extends StatefulWidget {
 }
 
 class _AeriumState extends State<Aerium> {
-  late AudioPlayer _audioPlayer;
   late AudioPlayer _secondAudioPlayer;
   late MusicController _musicController;
-  bool isPlayingFirstAudio = true;
 
   @override
   void initState() {
     super.initState();
-    _audioPlayer = AudioPlayer();
     _secondAudioPlayer = AudioPlayer();
-    _musicController = MusicController(_audioPlayer);
-
-    _playFirstAudio();
-  }
-
-  Future<void> _playFirstAudio() async {
-    try {
-      await _audioPlayer.setAudioSource(
-        AudioSource.asset(StringConst.first_music),
-      );
-      await _secondAudioPlayer.stop();
-      await _audioPlayer.play();
-
-      Future.delayed(const Duration(seconds: 6), () async {
-        await _audioPlayer.stop();
-        await _playSecondAudio();
-      });
-    } catch (e) {
-      debugPrint("Error playing first audio: $e");
-    }
+    _musicController = MusicController(_secondAudioPlayer);
+    _playSecondAudio(); // پخش موزیک دوم
   }
 
   Future<void> _playSecondAudio() async {
     try {
-      await _secondAudioPlayer.setAudioSource(
-        AudioSource.asset(StringConst.secound_music),
-      );
-      await _audioPlayer.stop();
-      _secondAudioPlayer.setLoopMode(LoopMode.all);
+      await _secondAudioPlayer.setAsset(StringConst.secound_music); // موزیک دوم
+      _secondAudioPlayer.setLoopMode(LoopMode.all); // تکرار موزیک
       await _secondAudioPlayer.play();
     } catch (e) {
       debugPrint("Error playing second audio: $e");
@@ -69,7 +45,6 @@ class _AeriumState extends State<Aerium> {
 
   @override
   void dispose() {
-    _audioPlayer.dispose();
     _secondAudioPlayer.dispose();
     super.dispose();
   }
@@ -81,7 +56,7 @@ class _AeriumState extends State<Aerium> {
         title: StringConst.APP_TITLE,
         theme: AppTheme.lightThemeData,
         debugShowCheckedModeBanner: false,
-        initialRoute: '/',
+        initialRoute: '/splash', // شروع از صفحه‌ی اسپلش
         onGenerateRoute: RouteConfiguration.onGenerateRoute,
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:aerium/main.dart';
 import 'package:aerium/presentation/pages/products/product_detail_page.dart'
     hide ProductDealItem;
 import 'package:aerium/presentation/pages/widgets/simple_footer.dart';
@@ -9,11 +10,15 @@ import 'package:aerium/presentation/pages/widgets/animated_footer.dart';
 import 'package:aerium/presentation/widgets_1/custom_spacer.dart';
 import 'package:aerium/presentation/widgets_1/page_wrapper.dart';
 import 'package:aerium/presentation/widgets_1/spaces.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ProductsPage extends StatefulWidget {
   static const String productsPageRoute = StringConst.PRODUCT_PAGE;
+  final MusicController musicController;
+
   const ProductsPage({
     Key? key,
+    required this.musicController,
   }) : super(key: key);
 
   @override
@@ -42,6 +47,12 @@ class _ProductsPageState extends State<ProductsPage>
     );
 
     super.initState();
+    _saveLastVisitedPage();
+  }
+
+  _saveLastVisitedPage() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('lastVisitedPage', StringConst.PRODUCT_PAGE);
   }
 
   @override
@@ -62,6 +73,7 @@ class _ProductsPageState extends State<ProductsPage>
       selectedPageName: StringConst.PRODUCTS,
       navBarAnimationController: _headingTextController,
       hasSideTitle: false,
+      musicController: widget.musicController,
       onLoadingAnimationDone: () {
         _headingTextController.forward();
       },
@@ -97,7 +109,7 @@ class _ProductsPageState extends State<ProductsPage>
               children: [
                 CustomSpacer(
                     heightFactor:
-                        isMobile ? 0.1 : 0.16), // فاصله کمتر برای موبایل
+                        isMobile ? 0.16 : 0.16), // فاصله کمتر برای موبایل
                 SpaceH40(),
                 Padding(
                   padding: EdgeInsets.symmetric(
@@ -128,8 +140,8 @@ class _ProductsPageState extends State<ProductsPage>
                     horizontal: isMobile ? 20 : 128, // پدینگ کمتر برای موبایل
                   ),
                   child: Wrap(
-                    spacing: isMobile ? 10 : 26, // فاصله کمتر برای موبایل
-                    runSpacing: isMobile ? 10 : 26, // فاصله کمتر برای موبایل
+                    spacing: isMobile ? 20 : 26, // فاصله کمتر برای موبایل
+                    runSpacing: isMobile ? 20 : 26, // فاصله کمتر برای موبایل
                     children:
                         List.generate(Data_2.trendingItems.length, (index) {
                       var product = Data_2.trendingItems[index];
@@ -166,6 +178,10 @@ class _ProductsPageState extends State<ProductsPage>
                           child: Hero(
                             tag: product.imagePath,
                             child: ProductDealCard(
+                              width:
+                                  isMobile ? Sizes.WIDTH_160 : Sizes.WIDTH_180,
+                              height:
+                                  isMobile ? Sizes.WIDTH_160 : Sizes.WIDTH_180,
                               title: product.title,
                               subtitle: product.subtitle,
                               price: product.price,

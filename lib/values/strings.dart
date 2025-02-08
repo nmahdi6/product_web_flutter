@@ -397,9 +397,11 @@ class StringConst {
   //routes
   static const String LOADING_PAGE = "/";
   static const String HOME_PAGE = "/home";
+  static const String SPLASH_PAGE = "/splash";
   // static const String PRODUCTS_PAGE = "/product";
   static const String ABOUT_PAGE = "/about";
-  static const String PRODUCT_PAGE = "/works";
+  static const String PRODUCT_PAGE = "/product";
+  // static const String PRODUCT_PAGE = "/works";
   static const String CONTACT_PAGE = "/contact";
   static const String PROJECT_PAGE = "/project";
   static const String PROJECT_DETAIL_PAGE = "/project-detail";

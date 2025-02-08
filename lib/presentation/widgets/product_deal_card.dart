@@ -102,10 +102,11 @@ class _ProductDealCardState extends State<ProductDealCard> {
                   color: widget.backgroundColor,
                 ),
                 padding: EdgeInsets.symmetric(
-                  horizontal: Sizes.PADDING_16,
-                  vertical: Sizes.PADDING_16,
+                  horizontal: Sizes.PADDING_14,
+                  vertical: Sizes.PADDING_14,
                 ),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     ClipRRect(
                       borderRadius: widget
@@ -122,8 +123,8 @@ class _ProductDealCardState extends State<ProductDealCard> {
                       child: Text(
                         widget.title,
                         style: theme.textTheme.headlineSmall?.copyWith(
-                          fontSize: Sizes.TEXT_SIZE_24,
-                        ),
+                            fontSize: Sizes.TEXT_SIZE_20,
+                            fontWeight: FontWeight.w800),
                       ),
                     ),
                     SpaceH20(),
@@ -136,7 +137,7 @@ class _ProductDealCardState extends State<ProductDealCard> {
                         ),
                       ),
                     ),
-                    SpaceH40(),
+                    SpaceH36(),
                     Center(
                       child: Container(
                         width: 150,
@@ -170,36 +171,6 @@ class _ProductDealCardState extends State<ProductDealCard> {
           )),
     );
   }
-
-  // List<TextSpan> _buildPrice({
-  //   required BuildContext context,
-  //   required String price,
-  // }) {
-  //   List<TextSpan> texts = [];
-  //   // List<Color> colors = [
-  //   //   AppColors.accentYellowColor,
-  //   //   AppColors.accentPinkColor,
-  //   //   AppColors.accentDarkGreenColor,
-  //   //   AppColors.accentOrangeColor,
-  //   // ];
-
-  //   int colorCounter = 0;
-  //   for (int index = 1; index < price.length; index++) {
-  //     texts.add(
-  //       createText(
-  //         context: context,
-  //         text: price[index],
-  //         textColor: AppColors.secondaryColor2,
-  //       ),
-  //       // textColor: colors[colorCounter]),
-  //     );
-  //     // colorCounter++;
-  //     // if (colorCounter == colors.length) {
-  //     //   colorCounter = 0;
-  //     // }
-  //   }
-  //   return texts;
-  // }
 
   TextSpan createText({
     required BuildContext context,

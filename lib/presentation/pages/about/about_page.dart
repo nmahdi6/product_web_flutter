@@ -1,4 +1,5 @@
 import 'package:aerium/core/layout/adaptive.dart';
+import 'package:aerium/main.dart';
 import 'package:aerium/presentation/pages/widgets/simple_footer.dart';
 import 'package:aerium/presentation/widgets_1/content_area.dart';
 import 'package:aerium/presentation/widgets_1/custom_spacer.dart';
@@ -6,10 +7,13 @@ import 'package:aerium/presentation/widgets_1/page_wrapper.dart';
 import 'package:aerium/presentation/widgets_1/spaces.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AboutPage extends StatefulWidget {
   static const String aboutPageRoute = StringConst.ABOUT_PAGE;
-  const AboutPage({Key? key}) : super(key: key);
+  final MusicController musicController;
+
+  const AboutPage({Key? key, required this.musicController}) : super(key: key);
 
   @override
   _AboutPageState createState() => _AboutPageState();
@@ -51,6 +55,12 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
     );
 
     super.initState();
+    _saveLastVisitedPage();
+  }
+
+  _saveLastVisitedPage() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('lastVisitedPage', StringConst.ABOUT_PAGE);
   }
 
   @override
@@ -116,6 +126,7 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
     );
 
     return PageWrapper(
+      musicController: widget.musicController,
       selectedRoute: AboutPage.aboutPageRoute,
       selectedPageName: '',
       navBarAnimationController: _controller,

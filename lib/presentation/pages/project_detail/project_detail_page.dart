@@ -1,5 +1,6 @@
 import 'package:aerium/core/layout/adaptive.dart';
 import 'package:aerium/core/utils/functions.dart';
+import 'package:aerium/main.dart';
 import 'package:aerium/presentation/pages/project_detail/widgets/about_project.dart';
 import 'package:aerium/presentation/pages/project_detail/widgets/next_project.dart';
 import 'package:aerium/presentation/pages/widgets/simple_footer.dart';
@@ -33,7 +34,10 @@ class ProjectDetailArguments {
 
 class ProjectDetailPage extends StatefulWidget {
   static const String projectDetailPageRoute = StringConst.PROJECT_DETAIL_PAGE;
-  const ProjectDetailPage({Key? key}) : super(key: key);
+  final MusicController musicController;
+
+  const ProjectDetailPage({Key? key, required this.musicController})
+      : super(key: key);
 
   @override
   _ProjectDetailPageState createState() => _ProjectDetailPageState();
@@ -120,6 +124,7 @@ class _ProjectDetailPageState extends State<ProjectDetailPage>
       assignWidth(context, 0.80),
     );
     return PageWrapper(
+      musicController: widget.musicController,
       backgroundColor: AppColors.white,
       selectedRoute: ProjectDetailPage.projectDetailPageRoute,
       hasSideTitle: false,
