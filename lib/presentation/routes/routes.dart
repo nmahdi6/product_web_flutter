@@ -1,104 +1,36 @@
-import 'package:aerium/main.dart';
-import 'package:aerium/presentation/pages/about/about_page.dart';
 import 'package:aerium/presentation/pages/contact_page.dart';
-import 'package:aerium/presentation/pages/project_detail/project_detail_page.dart';
-import 'package:aerium/presentation/pages/products/products_page.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
 import 'package:aerium/presentation/pages/home/home_page.dart';
-import 'package:just_audio/just_audio.dart';
-import 'package:aerium/presentation/pages/splash_screen.dart'; // اضافه کردن اسپلش اسکرین
-
-typedef PathWidgetBuilder = Widget Function(BuildContext, String?);
-
-class Path {
-  const Path(this.pattern, this.builder);
-
-  final String pattern;
-  final PathWidgetBuilder builder;
-}
+import 'package:aerium/presentation/pages/about/about_page.dart';
+import 'package:aerium/presentation/pages/products/products_page.dart';
+import 'package:aerium/presentation/pages/splash_screen.dart';
 
 class RouteConfiguration {
   static List<Path> paths = [
     Path(
-      r'^' + ContactPage.contactPageRoute,
-      (context, matches) {
-        AudioPlayer audioPlayer = AudioPlayer();
-        MusicController musicController = MusicController(audioPlayer);
-        return ContactPage(musicController: musicController);
-      },
-      // (context, matches) => const ContactPage(),
+      r'^' + HomePage.homePageRoute,
+      (context, matches) => HomePage(),
     ),
     Path(
       r'^' + AboutPage.aboutPageRoute,
-      (context, matches) {
-        AudioPlayer audioPlayer = AudioPlayer();
-        MusicController musicController = MusicController(audioPlayer);
-        return AboutPage(musicController: musicController);
-      },
-      // (context, matches) => const AboutPage(),
+      (context, matches) => AboutPage(),
+    ),
+    Path(
+      r'^' + ContactPage.contactPageRoute,
+      (context, matches) => ContactPage(),
     ),
     Path(
       r'^' + ProductsPage.productsPageRoute,
-      (context, matches) {
-        AudioPlayer audioPlayer = AudioPlayer();
-        MusicController musicController = MusicController(audioPlayer);
-        return ProductsPage(musicController: musicController);
-      },
-      // (context, matches) => const ProductsPage(),
+      (context, matches) => ProductsPage(),
     ),
     Path(
-      r'^' + ProjectDetailPage.projectDetailPageRoute,
-      (context, matches) {
-        AudioPlayer audioPlayer = AudioPlayer();
-        MusicController musicController = MusicController(audioPlayer);
-        return ProjectDetailPage(musicController: musicController);
-      },
-      // (context, matches) => const ProjectDetailPage(),
-    ),
-    // Path(
-    //   r'^' + ExperiencePage.experiencePageRoute,
-    //   (context, matches) => const ExperiencePage(),
-    // ),
-    // Path(
-    //   r'^' + CertificationPage.certificationPageRoute,
-    //   (context, matches) => const CertificationPage(),
-    // ),
-    Path(
-      r'^' + HomePage.homePageRoute,
-      (context, matches) {
-        AudioPlayer audioPlayer = AudioPlayer();
-        MusicController musicController = MusicController(audioPlayer);
-        return HomePage(musicController: musicController);
-      },
-    ),
-    Path(
-      r'^/$',
-      (context, matches) {
-        AudioPlayer audioPlayer = AudioPlayer();
-        MusicController musicController = MusicController(audioPlayer);
-        return HomePage(musicController: musicController);
-      },
-    ),
-    Path(
-      r'^' + HomePage.homePageRoute,
-      (context, matches) {
-        AudioPlayer audioPlayer = AudioPlayer();
-        MusicController musicController = MusicController(audioPlayer);
-        return HomePage(musicController: musicController);
-      },
-    ),
-    Path(
-      r'^/$',
-      (context, matches) {
-        AudioPlayer audioPlayer = AudioPlayer();
-        MusicController musicController = MusicController(audioPlayer);
-        return HomePage(musicController: musicController);
-      },
-    ),
-    Path(
-      r'^' + StringConst.SPLASH_PAGE,
+      r'^' + SplashScreen.splashPageRoute,
       (context, matches) => SplashScreen(),
+    ),
+    Path(
+      r'^/$',
+      (context, matches) => HomePage(),
     ),
   ];
 
@@ -114,23 +46,19 @@ class RouteConfiguration {
         );
       }
     }
-    return null;
+
+    // اگر مسیر یافت نشد، کاربر را به صفحه اصلی هدایت کنید
+    return MaterialPageRoute<void>(
+      builder: (context) => HomePage(), // یا یک صفحه ۴۰۴ سفارشی
+    );
   }
 }
 
-class NoAnimationMaterialPageRoute<T> extends MaterialPageRoute<T> {
-  NoAnimationMaterialPageRoute({
-    required WidgetBuilder builder,
-    RouteSettings? settings,
-  }) : super(builder: builder, settings: settings);
+class Path {
+  const Path(this.pattern, this.builder);
 
-  @override
-  Widget buildTransitions(
-    BuildContext context,
-    Animation<double> animation,
-    Animation<double> secondaryAnimation,
-    Widget child,
-  ) {
-    return child;
-  }
+  final String pattern;
+  final PathWidgetBuilder builder;
 }
+
+typedef PathWidgetBuilder = Widget Function(BuildContext, String?);

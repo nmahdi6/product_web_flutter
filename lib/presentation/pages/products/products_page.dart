@@ -3,6 +3,7 @@ import 'package:aerium/presentation/pages/products/product_detail_page.dart'
     hide ProductDealItem;
 import 'package:aerium/presentation/pages/widgets/simple_footer.dart';
 import 'package:aerium/presentation/widgets/product_deal_card.dart';
+import 'package:aerium/presentation/widgets/save_last_page/save_last_visited_page.dart';
 import 'package:aerium/presentation/widgets/section_heading_1.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
@@ -14,11 +15,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class ProductsPage extends StatefulWidget {
   static const String productsPageRoute = StringConst.PRODUCT_PAGE;
-  final MusicController musicController;
+  // final MusicController musicController;
 
   const ProductsPage({
     Key? key,
-    required this.musicController,
+    // required this.musicController,
   }) : super(key: key);
 
   @override
@@ -64,6 +65,11 @@ class _ProductsPageState extends State<ProductsPage>
 
   @override
   Widget build(BuildContext context) {
+    // ذخیره آخرین صفحه بازدید شده
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      saveLastVisitedPage(StringConst.PRODUCT_PAGE);
+    });
+
     Size size = MediaQuery.of(context).size;
     bool isMobile = size.width < 600; // تشخیص دستگاه موبایل
     TextTheme textTheme = Theme.of(context).textTheme;
@@ -73,7 +79,7 @@ class _ProductsPageState extends State<ProductsPage>
       selectedPageName: StringConst.PRODUCTS,
       navBarAnimationController: _headingTextController,
       hasSideTitle: false,
-      musicController: widget.musicController,
+      // musicController: widget.musicController,
       onLoadingAnimationDone: () {
         _headingTextController.forward();
       },

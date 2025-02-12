@@ -1,54 +1,31 @@
-import 'package:aerium/injection_container.dart';
-import 'package:aerium/values/values.dart';
-import 'package:flutter/material.dart';
 import 'package:aerium/app_theme.dart';
-import 'package:aerium/presentation/routes/routes.dart';
-import 'package:just_audio/just_audio.dart';
+import 'package:aerium/infrastructure/music_bloc/music_bloc.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:layout/layout.dart';
-import 'package:url_strategy/url_strategy.dart';
-import 'configure_web.dart';
+import 'package:aerium/values/values.dart';
+import 'package:aerium/presentation/routes/routes.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  configureDependencies();
-  configureApp();
-  // setPathUrlStrategy(); // حذف # از URL‌ها
-  runApp(Aerium());
+  // configureDependencies();
+  // configureApp();
+  setUrlStrategy(PathUrlStrategy()); // استفاده از PathUrlStrategy
+
+  runApp(
+    BlocProvider(
+      create: (context) => MusicBloc(),
+      child: Aerium(),
+    ),
+    // ChangeNotifierProvider(
+    //   create: (context) => MusicProvider(),
+    //   child: Aerium(),
+    // ),
+  );
 }
 
-class Aerium extends StatefulWidget {
-  @override
-  State<Aerium> createState() => _AeriumState();
-}
-
-class _AeriumState extends State<Aerium> {
-  late AudioPlayer _secondAudioPlayer;
-  late MusicController _musicController;
-
-  @override
-  void initState() {
-    super.initState();
-    _secondAudioPlayer = AudioPlayer();
-    _musicController = MusicController(_secondAudioPlayer);
-    _playSecondAudio(); // پخش موزیک دوم
-  }
-
-  Future<void> _playSecondAudio() async {
-    try {
-      await _secondAudioPlayer.setAsset(StringConst.secound_music); // موزیک دوم
-      _secondAudioPlayer.setLoopMode(LoopMode.all); // تکرار موزیک
-      await _secondAudioPlayer.play();
-    } catch (e) {
-      debugPrint("Error playing second audio: $e");
-    }
-  }
-
-  @override
-  void dispose() {
-    _secondAudioPlayer.dispose();
-    super.dispose();
-  }
-
+class Aerium extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Layout(
@@ -56,27 +33,53 @@ class _AeriumState extends State<Aerium> {
         title: StringConst.APP_TITLE,
         theme: AppTheme.lightThemeData,
         debugShowCheckedModeBanner: false,
-        initialRoute: '/splash', // شروع از صفحه‌ی اسپلش
+        initialRoute: '/splash',
         onGenerateRoute: RouteConfiguration.onGenerateRoute,
       ),
     );
   }
 }
 
-class MusicController {
-  final AudioPlayer audioPlayer;
+// import 'package:aerium/app_theme.dart';
+// import 'package:aerium/presentation/widgets/music_provider/music_provider.dart';
+// import 'package:flutter/material.dart';
+// import 'package:layout/layout.dart';
+// import 'package:provider/provider.dart';
+// import 'package:aerium/values/values.dart';
+// import 'package:aerium/presentation/routes/routes.dart';
+// import 'package:flutter_web_plugins/url_strategy.dart';
+// import 'package:aerium/injection_container.dart'; // اضافه کردن فایل injection_container.dart
 
-  MusicController(this.audioPlayer);
+// void main() async {
+//   WidgetsFlutterBinding.ensureInitialized();
+//   // setup(); // فراخوانی تابع setup برای ثبت وابستگی‌ها
 
-  void setVolume(double volume) {
-    audioPlayer.setVolume(volume.clamp(0.0, 1.0));
-  }
+//   setUrlStrategy(PathUrlStrategy()); // استفاده از PathUrlStrategy
 
-  Future<void> togglePlayPause() async {
-    if (audioPlayer.playing) {
-      await audioPlayer.pause();
-    } else {
-      await audioPlayer.play();
-    }
-  }
-}
+//   runApp(
+//     MultiProvider(
+//       providers: [
+//         ChangeNotifierProvider(
+//           create: (context) => MusicProvider(),
+//         ),
+//         // سایر Providerها را اینجا اضافه کنید
+//       ],
+//       child: Aerium(),
+//     ),
+//   );
+// }
+
+// class Aerium extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Layout(
+//       child: MaterialApp(
+//         title: StringConst.APP_TITLE,
+//         theme: AppTheme.lightThemeData,
+//         debugShowCheckedModeBanner: false,
+//         initialRoute: '/splash',
+//         onGenerateRoute: RouteConfiguration.onGenerateRoute,
+//       ),
+//     );
+//   }
+// }

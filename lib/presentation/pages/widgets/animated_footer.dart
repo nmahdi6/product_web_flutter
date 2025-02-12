@@ -44,7 +44,7 @@ class _AnimatedFooterState extends State<AnimatedFooter>
 
   @override
   Widget build(BuildContext context) {
-    double circleImageSize = responsiveSize(context, 70, 120, sm: 60);
+    double circleImageSize = responsiveSize(context, 70, 120, sm: 70);
     TextTheme textTheme = Theme.of(context).textTheme;
     Size size = MediaQuery.of(context).size;
 
@@ -88,7 +88,6 @@ class _AnimatedFooterState extends State<AnimatedFooter>
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              height: circleImageSize,
               child: Stack(
                 children: [
                   Positioned(
@@ -101,8 +100,8 @@ class _AnimatedFooterState extends State<AnimatedFooter>
                     ),
                     top: responsiveSize(
                       context,
-                      assignHeight(context, isMobile ? 0.015 : 0.01),
-                      assignHeight(context, isMobile ? 0.015 : 0.01),
+                      assignHeight(context, isMobile ? 0.015 : 0.001),
+                      assignHeight(context, isMobile ? 0.015 : 0.001),
                     ),
                     child: AnimatedPositionedWidget(
                       controller: CurvedAnimation(
@@ -142,7 +141,7 @@ class _AnimatedFooterState extends State<AnimatedFooter>
                             curve: Curves.fastOutSlowIn,
                           ),
                         ),
-                        SpaceH80(),
+                        SpaceH20(),
                       ],
                     ),
                   ),

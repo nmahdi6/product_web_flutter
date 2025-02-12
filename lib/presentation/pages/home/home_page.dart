@@ -6,6 +6,7 @@ import 'package:aerium/presentation/pages/home/widgets/home_page_header.dart';
 import 'package:aerium/presentation/pages/widgets/animated_footer.dart';
 import 'package:aerium/presentation/pages/widgets/simple_footer.dart';
 import 'package:aerium/presentation/widgets/product_deal_card.dart';
+import 'package:aerium/presentation/widgets/save_last_page/save_last_visited_page.dart';
 import 'package:aerium/presentation/widgets/section_heading_1.dart';
 import 'package:aerium/presentation/widgets_1/animated_text_slide_box_transition.dart';
 import 'package:aerium/presentation/widgets_1/custom_spacer.dart';
@@ -19,9 +20,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 class HomePage extends StatefulWidget {
   static const String homePageRoute = StringConst.HOME_PAGE;
 
-  final MusicController musicController;
+  // final MusicController musicController;
 
-  HomePage({Key? key, required this.musicController}) : super(key: key);
+  HomePage({
+    Key? key,
+  }) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -45,6 +48,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       vsync: this,
       duration: Animations.slideAnimationDurationLong,
     );
+    _slideTextController.forward(); // شروع انیمیشن متن
 
     super.initState();
     _saveLastVisitedPage();
@@ -74,6 +78,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    // ذخیره آخرین صفحه بازدید شده
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      saveLastVisitedPage(StringConst.HOME_PAGE);
+    });
     getArguments();
     TextTheme textTheme = Theme.of(context).textTheme;
     Size size = MediaQuery.of(context).size;
@@ -144,7 +152,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       //     _slideTextController.forward();
       //   },
       // ),
-      musicController: widget.musicController,
+      // musicController: widget.musicController,
       child: Directionality(
         textDirection: TextDirection.rtl,
         child: Scaffold(

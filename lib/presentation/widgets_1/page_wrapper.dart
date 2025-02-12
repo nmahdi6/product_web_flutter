@@ -20,28 +20,27 @@ class NavigationArguments {
 }
 
 class PageWrapper extends StatefulWidget {
-  PageWrapper(
-      {Key? key,
-      required this.selectedRoute,
-      required this.selectedPageName,
-      required this.navBarAnimationController,
-      required this.child,
-      required this.musicController, // اضافه کردن MusicController
-      this.customLoadingAnimation = const Empty(),
-      this.onLoadingAnimationDone,
-      this.hasSideTitle = true,
-      this.hasUnveilPageAnimation = true,
-      this.reverseAnimationOnPop = true,
-      this.backgroundColor,
-      this.navBarTitleColor = AppColors.grey600,
-      this.navBarSelectedTitleColor = AppColors.black,
-      this.appLogoColor = AppColors.black})
-      : super(key: key);
+  PageWrapper({
+    Key? key,
+    required this.selectedRoute,
+    required this.selectedPageName,
+    required this.navBarAnimationController,
+    required this.child,
+    this.customLoadingAnimation = const Empty(),
+    this.onLoadingAnimationDone,
+    this.hasSideTitle = true,
+    this.hasUnveilPageAnimation = true,
+    this.reverseAnimationOnPop = true,
+    this.backgroundColor,
+    this.navBarTitleColor = AppColors.grey600,
+    this.navBarSelectedTitleColor = AppColors.black,
+    this.appLogoColor = AppColors.black,
+  }) : super(key: key);
 
   final String selectedRoute;
   final String selectedPageName;
   final AnimationController navBarAnimationController;
-  final MusicController musicController; // MusicController
+  // final MusicController musicController; // MusicController
   final VoidCallback? onLoadingAnimationDone;
   final Widget child;
   final Widget customLoadingAnimation;
@@ -120,7 +119,6 @@ class _PageWrapperState extends State<PageWrapper>
             selectedRouteTitle: widget.selectedPageName,
             controller: widget.navBarAnimationController,
             selectedRouteName: widget.selectedRoute,
-            musicController: widget.musicController, // انتقال MusicController
             hasSideTitle: widget.hasSideTitle,
             appLogoColor: widget.appLogoColor,
             titleColor: widget.navBarTitleColor,

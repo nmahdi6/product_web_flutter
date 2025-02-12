@@ -11,9 +11,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class AboutPage extends StatefulWidget {
   static const String aboutPageRoute = StringConst.ABOUT_PAGE;
-  final MusicController musicController;
+  // final MusicController musicController;
 
-  const AboutPage({Key? key, required this.musicController}) : super(key: key);
+  const AboutPage({
+    Key? key,
+  }) : super(key: key);
 
   @override
   _AboutPageState createState() => _AboutPageState();
@@ -126,7 +128,7 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
     );
 
     return PageWrapper(
-      musicController: widget.musicController,
+      // musicController: widget.musicController,
       selectedRoute: AboutPage.aboutPageRoute,
       selectedPageName: '',
       navBarAnimationController: _controller,

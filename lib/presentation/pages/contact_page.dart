@@ -1,7 +1,6 @@
 import 'package:aerium/core/utils/extensions.dart';
 import 'package:aerium/core/layout/adaptive.dart';
 import 'package:aerium/infrastructure/bloc/email_bloc.dart';
-import 'package:aerium/main.dart';
 import 'package:aerium/presentation/pages/widgets/simple_footer.dart';
 import 'package:aerium/presentation/widgets_1/aerium_button.dart';
 import 'package:aerium/presentation/widgets_1/animated_positioned_text.dart';
@@ -20,10 +19,10 @@ import '../../injection_container.dart';
 
 class ContactPage extends StatefulWidget {
   static const String contactPageRoute = StringConst.CONTACT_PAGE;
-  final MusicController musicController;
 
-  const ContactPage({Key? key, required this.musicController})
-      : super(key: key);
+  const ContactPage({
+    Key? key,
+  }) : super(key: key);
 
   @override
   _ContactPageState createState() => _ContactPageState();
@@ -35,7 +34,6 @@ class _ContactPageState extends State<ContactPage>
   late Animation<Offset> _slideAnimation;
   late EmailBloc emailBloc;
   bool isSendingEmail = false;
-  bool isBodyVisible = false;
   bool _nameFilled = false;
   bool _emailFilled = false;
   bool _subjectFilled = false;
@@ -55,14 +53,12 @@ class _ContactPageState extends State<ContactPage>
       vsync: this,
       duration: Animations.slideAnimationDurationLong,
     );
-    _slideAnimation =
-        Tween<Offset>(begin: Offset(0, 1), end: Offset(0, 0)).animate(
-      CurvedAnimation(
-        parent: _controller,
-        curve: Interval(0.6, 1.0, curve: Curves.ease),
-      ),
-    );
-    emailBloc = getIt<EmailBloc>();
+    // _slideAnimation = Tween<Offset>(begin: Offset(0, 1), end: Offset(0, 0))
+    //     .animate(CurvedAnimation(
+    //   parent: _controller,
+    //   curve: Interval(0.6, 1.0, curve: Curves.ease),
+    // ));
+    // emailBloc = getIt<EmailBloc>(); // دریافت EmailBloc از GetIt
     super.initState();
     _saveLastVisitedPage();
   }
@@ -118,41 +114,42 @@ class _ContactPageState extends State<ContactPage>
     );
     double contentAreaWidth = responsiveSize(
       context,
-      assignWidth(context, 0.8), // عرض بیشتر برای موبایل
+      assignWidth(context, 0.8),
       assignWidth(context, 0.6),
     );
 
     double buttonWidth = responsiveSize(
       context,
-      contentAreaWidth * 0.8, // عرض بیشتر برای موبایل
+      contentAreaWidth * 0.8,
       contentAreaWidth * 0.25,
     );
     EdgeInsetsGeometry padding = EdgeInsets.only(
       left: responsiveSize(
         context,
-        assignWidth(context, 0.05), // پدینگ کمتر برای موبایل
+        assignWidth(context, 0.05),
         assignWidth(context, 0.15),
       ),
       right: responsiveSize(
         context,
-        assignWidth(context, 0.05), // پدینگ کمتر برای موبایل
+        assignWidth(context, 0.05),
         assignWidth(context, 0.15),
       ),
       top: responsiveSize(
         context,
-        assignHeight(context, 0.18), // پدینگ کمتر برای موبایل
+        assignHeight(context, 0.18),
         assignHeight(context, 0.3),
       ),
     );
     TextStyle? headingStyle = textTheme.displayMedium?.copyWith(
       color: AppColors.black,
-      fontSize: responsiveSize(context, 30, 60), // فونت کوچک‌تر برای موبایل
+      fontSize: responsiveSize(context, 30, 60),
     );
     Size size = MediaQuery.of(context).size;
-    bool isMobile = size.width < 600; // تشخیص دستگاه موبایل
+    bool isMobile = size.width < 600;
 
-    return BlocConsumer<EmailBloc, EmailState>(
-        bloc: emailBloc,
+    return BlocProvider(
+      create: (context) => emailBloc,
+      child: BlocConsumer<EmailBloc, EmailState>(
         listener: (context, state) {
           if (state == EmailState.failure()) {
             setState(() {
@@ -196,7 +193,6 @@ class _ContactPageState extends State<ContactPage>
         },
         builder: (context, state) {
           return PageWrapper(
-            musicController: widget.musicController,
             selectedRoute: ContactPage.contactPageRoute,
             selectedPageName: '',
             navBarAnimationController: _controller,
@@ -205,7 +201,6 @@ class _ContactPageState extends State<ContactPage>
             },
             child: Stack(
               children: [
-                // background image
                 Container(
                   color: AppColors.appBackgroundColor,
                   width: size.width,
@@ -214,19 +209,13 @@ class _ContactPageState extends State<ContactPage>
                     child: ClipRRect(
                       child: Image.asset(
                         ImagePath.badsaba_light,
-                        width: isMobile
-                            ? size.width / 2
-                            : size.width / 3, // تصویر کوچک‌تر برای موبایل
-                        height: isMobile
-                            ? size.height / 3
-                            : size.height / 2, // تصویر کوچک‌تر برای موبایل
+                        width: isMobile ? size.width / 2 : size.width / 3,
+                        height: isMobile ? size.height / 3 : size.height / 2,
                         fit: BoxFit.cover,
                       ),
                     ),
                   ),
                 ),
-
-                // main of contact
                 Directionality(
                   textDirection: TextDirection.rtl,
                   child: ListView(
@@ -240,8 +229,7 @@ class _ContactPageState extends State<ContactPage>
                         child: Container(
                           padding: EdgeInsets.symmetric(
                             vertical: 20,
-                            horizontal:
-                                isMobile ? 20 : 50, // پدینگ کمتر برای موبایل
+                            horizontal: isMobile ? 20 : 50,
                           ),
                           decoration: BoxDecoration(
                             color:
@@ -253,7 +241,7 @@ class _ContactPageState extends State<ContactPage>
                                 spreadRadius: 5,
                                 blurRadius: 7,
                                 offset: Offset(0, 3),
-                              ),
+                              )
                             ],
                             border: Border.all(
                                 color: AppColors.appBackgroundColorOpposite,
@@ -287,8 +275,7 @@ class _ContactPageState extends State<ContactPage>
                                     height: 2.0,
                                     fontSize: responsiveSize(
                                       context,
-                                      Sizes
-                                          .TEXT_SIZE_14, // فونت کوچک‌تر برای موبایل
+                                      Sizes.TEXT_SIZE_14,
                                       Sizes.TEXT_SIZE_18,
                                     ),
                                   ),
@@ -394,9 +381,7 @@ class _ContactPageState extends State<ContactPage>
                           ),
                         ),
                       ),
-                      CustomSpacer(
-                          heightFactor:
-                              isMobile ? 0.1 : 0.15), // فاصله کمتر برای موبایل
+                      CustomSpacer(heightFactor: isMobile ? 0.1 : 0.15),
                       SimpleFooter(),
                     ],
                   ),
@@ -404,14 +389,13 @@ class _ContactPageState extends State<ContactPage>
               ],
             ),
           );
-        });
+        },
+      ),
+    );
   }
 
   bool isTextValid(String value) {
-    if (value.length > 0) {
-      return true;
-    }
-    return false;
+    return value.isNotEmpty;
   }
 
   void isNameValid(String name) {
@@ -447,9 +431,9 @@ class _ContactPageState extends State<ContactPage>
   }
 
   void clearText() {
-    _nameController.text = "";
-    _emailController.text = "";
-    _subjectController.text = "";
-    _messageController.text = "";
+    _nameController.clear();
+    _emailController.clear();
+    _subjectController.clear();
+    _messageController.clear();
   }
 }
