@@ -1,5 +1,4 @@
 import 'package:aerium/core/layout/adaptive.dart';
-import 'package:aerium/main.dart';
 import 'package:aerium/presentation/pages/products/product_detail_page.dart'
     hide ProductDealItem;
 import 'package:aerium/presentation/pages/home/widgets/home_page_header.dart';

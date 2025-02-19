@@ -1,17 +1,28 @@
 import 'package:aerium/core/layout/adaptive.dart';
-import 'package:aerium/infrastructure/music_bloc/music_bloc.dart';
+import 'package:aerium/presentation/widgets/empty.dart';
+import 'package:aerium/presentation/widgets/spaces.dart';
 import 'package:aerium/presentation/widgets_1/animated_text_slide_box_transition.dart';
 import 'package:aerium/presentation/widgets_1/app_logo.dart';
-import 'package:aerium/presentation/widgets_1/empty.dart';
 import 'package:aerium/presentation/widgets_1/nav_item.dart';
-import 'package:aerium/presentation/widgets_1/spaces.dart';
-import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:aerium/infrastructure/music_bloc/music_bloc.dart';
+import 'package:aerium/values/values.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class NavBar extends StatelessWidget {
+  final String selectedRouteTitle;
+  final String selectedRouteName;
+  final AnimationController controller;
+  final TextStyle? selectedRouteTitleStyle;
+  final GestureTapCallback? onMenuTap;
+  final bool hasSideTitle;
+  final Color titleColor;
+  final Color selectedTitleColor;
+  final Color appLogoColor;
+  final Function(String)? onNavItemWebTap;
+
   NavBar({
     Key? key,
     required this.selectedRouteTitle,
@@ -26,31 +37,9 @@ class NavBar extends StatelessWidget {
     this.appLogoColor = AppColors.black,
   }) : super(key: key);
 
-  final String selectedRouteTitle;
-  final String selectedRouteName;
-  final AnimationController controller;
-  final TextStyle? selectedRouteTitleStyle;
-  final GestureTapCallback? onMenuTap;
-  final bool hasSideTitle;
-  final Color titleColor;
-  final Color selectedTitleColor;
-  final Color appLogoColor;
-
-  /// این تابع برای مدیریت ناوبری در دسکتاپ استفاده می‌شود
-  final Function(String)? onNavItemWebTap;
-
   @override
   Widget build(BuildContext context) {
-    final musicBloc =
-        BlocProvider.of<MusicBloc>(context); // دسترسی به MusicBloc
-
-    // پخش موزیک به‌طور خودکار هنگام ورود به صفحه
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (musicBloc.state is! MusicPlaying ||
-          !(musicBloc.state as MusicPlaying).isPlaying) {
-        musicBloc.add(PlayMusicEvent(StringConst.first_music));
-      }
-    });
+    final musicBloc = BlocProvider.of<MusicBloc>(context);
 
     return ResponsiveBuilder(builder: (context, sizingInformation) {
       double screenWidth = sizingInformation.screenSize.width;
@@ -65,7 +54,7 @@ class NavBar extends StatelessWidget {
 
   Widget mobileNavBar(BuildContext context, MusicBloc musicBloc) {
     double screenWidth = MediaQuery.of(context).size.width;
-    bool isSmallMobile = screenWidth < 360; // تشخیص دستگاه‌های بسیار کوچک
+    bool isSmallMobile = screenWidth < 360;
 
     return BlocBuilder<MusicBloc, MusicState>(
       builder: (context, state) {

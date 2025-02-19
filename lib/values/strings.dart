@@ -732,4 +732,6 @@ class StringConst {
   // audio url
   static const String secound_music = 'assets/audio/secound_music.mp3';
   static const String first_music = 'assets/audio/first_music.mp3';
+
+  static const String code = 'R7KGN2E4ENQEW57NEPJUP9FK';
 }

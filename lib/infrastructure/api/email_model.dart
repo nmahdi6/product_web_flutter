@@ -6,7 +6,7 @@ String emailModelToJson(Email data) => json.encode(data.toJson());
 
 class Email {
   Email({
-   required this.status,
+    required this.status,
   });
 
   String status;

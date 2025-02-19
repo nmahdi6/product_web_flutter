@@ -1,7 +1,6 @@
-import 'package:aerium/infrastructure/api/email_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:aerium/infrastructure/api/email_repository.dart';
 import 'package:equatable/equatable.dart';
-import 'package:aerium/infrastructure/failures/email_failure.dart';
 
 part 'email_event.dart';
 part 'email_state.dart';
@@ -9,31 +8,24 @@ part 'email_state.dart';
 class EmailBloc extends Bloc<EmailEvent, EmailState> {
   final EmailRepository emailRepository;
 
-  EmailBloc({required this.emailRepository}) : super(EmailInitial());
-
-  @override
-  Stream<EmailState> mapEventToState(EmailEvent event) async* {
-    if (event is SendEmail) {
-      yield EmailSending();
+  EmailBloc({required this.emailRepository}) : super(EmailInitial()) {
+    on<SendEmail>((event, emit) async {
+      emit(EmailSending());
       try {
-        final result = await emailRepository.sendEmail(
+        final success = await emailRepository.sendEmail(
           name: event.name,
           email: event.email,
           subject: event.subject,
           message: event.message,
         );
-
-        yield* result.fold(
-          (failure) async* {
-            yield EmailSendFailure(error: failure.toString());
-          },
-          (email) async* {
-            yield EmailSentSuccessfully();
-          },
-        );
+        if (success) {
+          emit(EmailSentSuccessfully());
+        } else {
+          emit(EmailSendFailure(error: "Failed to send email"));
+        }
       } catch (e) {
-        yield EmailSendFailure(error: e.toString());
+        emit(EmailSendFailure(error: e.toString()));
       }
-    }
+    });
   }
 }
